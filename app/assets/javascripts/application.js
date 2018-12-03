@@ -14,3 +14,13 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+//= require jquery.min
+//= require js/bootstrap.bundle.min
+//= require rs-plugin-5/js/jquery.themepunch.tools.min
+//= require rs-plugin-5/js/jquery.themepunch.revolution.min
+//= require magnific-popup/jquery.magnific-popup.min
+//= require waypoints/jquery.waypoints.min
+//= require waypoints/sticky.min
+//= require template
+//= requirecustom
