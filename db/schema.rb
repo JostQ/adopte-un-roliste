@@ -10,10 +10,70 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_04_105633) do
+ActiveRecord::Schema.define(version: 2018_12_04_142533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "characters", force: :cascade do |t|
+    t.string "pseudo"
+    t.integer "level"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "roleplay_id"
+    t.index ["roleplay_id"], name: "index_characters_on_roleplay_id"
+    t.index ["user_id"], name: "index_characters_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "game_sessions", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "primary_specs", force: :cascade do |t|
+    t.string "name"
+    t.integer "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "character_id"
+    t.index ["character_id"], name: "index_primary_specs_on_character_id"
+  end
+
+  create_table "roleplays", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "image_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "gm"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "game_session_id"
+    t.index ["game_session_id"], name: "index_roles_on_game_session_id"
+    t.index ["user_id"], name: "index_roles_on_user_id"
+  end
+
+  create_table "secondary_specs", force: :cascade do |t|
+    t.string "name"
+    t.integer "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "character_id"
+    t.index ["character_id"], name: "index_secondary_specs_on_character_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +87,10 @@ ActiveRecord::Schema.define(version: 2018_12_04_105633) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "characters", "roleplays"
+  add_foreign_key "characters", "users"
+  add_foreign_key "primary_specs", "characters"
+  add_foreign_key "roles", "game_sessions"
+  add_foreign_key "roles", "users"
+  add_foreign_key "secondary_specs", "characters"
 end
