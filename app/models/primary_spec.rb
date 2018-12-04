@@ -1,0 +1,2 @@
+class PrimarySpec < ApplicationRecord
+end

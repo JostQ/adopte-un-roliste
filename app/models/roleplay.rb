@@ -1,0 +1,2 @@
+class Roleplay < ApplicationRecord
+end
