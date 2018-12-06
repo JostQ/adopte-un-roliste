@@ -22,5 +22,7 @@
 //= require magnific-popup/jquery.magnific-popup.min
 //= require waypoints/jquery.waypoints.min
 //= require waypoints/sticky.min
+//= require countTo/jquery.countTo
+//= require slick/slick.min
 //= require template
 //= requirecustom
