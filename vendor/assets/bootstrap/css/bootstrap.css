@@ -3887,7 +3887,7 @@ input[type="button"].btn-block {
 }
 
 .nav-link.disabled {
-  color: #6c757d;
+  color: rgb(80, 0, 0);
 }
 
 .nav-tabs {
