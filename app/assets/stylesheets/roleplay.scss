@@ -1,0 +1,39 @@
+// Place all the styles related to the Roleplay controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.main-container {
+  background-color: rgb(255,232,190)!important;
+  height: 275px;
+  padding: 25px;
+}
+
+.card {
+  background-color: #604020!important;
+  height: 25%;
+  margin-left: 50px;
+  display: flex!important;
+  flex-direction: row!important;
+}
+
+.RPcontent {
+  margin-left: -25%;
+}
+
+.title {
+  color: Black;
+  font-weight: bold;
+}
+
+.p {
+  margin-left: 5%;
+  color: white;
+}
+
+.RP{
+  padding-top: 15px;
+  padding-bottom: 7px;
+}
+.pic {
+  width: 35%;
+}
