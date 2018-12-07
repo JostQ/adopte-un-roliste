@@ -21,22 +21,26 @@
     </div>
     <header class="header dark fixed fixed-desktop clearfix">
       <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
           <div class="col-md-auto hidden-md-down">
-            <div class="col-lg-8 ml-auto">
+            <div class="col-lg-10 ml-auto">
               <div class="header-second clearfix">
                 <div class="main-navigation main-navigation--mega-menu  animated">
                   <nav class="navbar navbar-expand-lg navbar-light p-0">
 
                     <div class="collapse navbar-collapse" id="navbar-collapse-1">
                       <ul class="navbar-nav ml-xl-auto">
-                        <li class="nav-item dropdown">
+                        <li>
                           <%= link_to "Les Univers", root_path, class: "nav-link"  %>
                         </li>
                     <!-- mega-menu start -->
-                        <%= image_tag "logo2.png", class: "logo_nav" %>
+                        <li>
+                          <%= link_to root_path do %>
+                            <%= image_tag "logo2.png", class: "logo_nav" %>
+                          <% end %>
+                        </li>
                     <!-- mega-menu end -->
-                        <li class="nav-item dropdown">
+                        <li>
                           <%= link_to "Partir à l'aventure", root_path, class: "nav-link"  %>
                         </li>
                       </ul>
