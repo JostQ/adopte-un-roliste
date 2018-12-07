@@ -9,11 +9,12 @@
 }
 
 .card {
-  background-color: #604020!important;
+  background-image: linear-gradient(rgb(125, 112, 98), rgba(125, 112, 98, 0.9)) !important;
   height: 25%;
   margin-left: 50px;
   display: flex!important;
   flex-direction: row!important;
+  opacity: 0.9;
 }
 
 .RPcontent {
@@ -22,12 +23,13 @@
 
 .title {
   color: Black;
-  font-weight: bold;
+  font-family: "raleway";
 }
 
 .p {
   margin-left: 5%;
   color: white;
+  font-family: "Open-sans"
 }
 
 .RP{
