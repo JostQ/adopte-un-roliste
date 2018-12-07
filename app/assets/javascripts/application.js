@@ -26,3 +26,7 @@
 //= require slick/slick.min
 //= require template
 //= requirecustom
+
+$(window).scroll(function(){
+	$('header').toggleClass('scrolled', $(this).scrollTop() > 0);
+});
