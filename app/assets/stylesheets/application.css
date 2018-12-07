@@ -1,35 +1,75 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- *= require css/bootstrap
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+* vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+* files in this directory. Styles in this file should be added after the last require_* statement.
+* It is generally better to create a new file per style scope.
+*
+*= require_tree .
+*= require_self
+*= require css/bootstrap
 
- *= require font-awesome/css/font-awesome.css
- *= require magnific-popup/magnific-popup
- *= require rs-plugin-5/css/settings
- *= require rs-plugin-5/css/layers
- *= require rs-plugin-5/css/navigation
- *= require animations
- *= require slick/slick
- *= require style
- *= require typography-default
- *= require skins/dark_red
- *= require custom
+*= require font-awesome/css/font-awesome.css
+*= require magnific-popup/magnific-popup
+*= require rs-plugin-5/css/settings
+*= require rs-plugin-5/css/layers
+*= require rs-plugin-5/css/navigation
+*= require animations
+*= require slick/slick
+*= require style
+*= require typography-default
+*= require skins/dark_red
+*= require custom
 
- */
+*/
 
+<<<<<<< HEAD
  main {
    background-image: url('https://yese69.com/wp-content/uploads/data/2018/1/4/fantasy-wallpaper-1920x1080-lar-WTG30410570.jpg');
    background-size: cover;
    height:100vh;
  }
+=======
+.medium_white {
+  font-size: 18px;
+}
+@media (min-width: 1200px) {
+  .image-box {
+    margin: 15px 15px 30px;
+  }
+}
+@media (max-width: 767px) {
+  .large_white {
+    font-size: 30px!important;
+    line-height: 1.2!important;
+  }
+}
+@media (max-width: 575px) {
+  .large_white {
+    font-size: 24px!important;
+    line-height: 1.2!important;
+  }
+}
+header.header .btn {
+  color: #ffffff;
+}
+.fixed-header-on header.header .btn {
+  margin-top: 5px !important;
+}
+.list-style-icons .nav-item {
+  font-size: 16px;
+  padding: 1px 0;
+  font-weight: 300;
+}
+.footer .list-style-icons .nav-item {
+  color: #dddddd;
+}
+body {
+  background-color: rgb(255,232,190)!important;
+}
+>>>>>>> b4b96d7b3b8d945a7b2271d9d5a983bc9aac5405

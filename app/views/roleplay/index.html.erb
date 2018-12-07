@@ -1,0 +1,43 @@
+<section class="main-container">
+  <%compter = 0%>
+  <%@roleplay.each do |r|%>
+  <%if compter == 0%>
+  <div class="main col-md-12">
+    <div class="card col-9 shadow">
+      <div class="col-lg-5 RP">
+        <img src="<%=r.image_url%>" alt="<%=r.name%> image" class="pic" >
+      </div>
+      <div class="col-lg-7 RPcontent">
+        <h3 class="title"><%=r.name%></h3>
+        <p class="p"><%=r.description%></p>
+      </div>
+    </div>
+  </div>
+  <%elsif compter %2 == 0 && compter > 0 %>
+  <div class="main col-md-12 mt-5">
+    <div class="card col-9 shadow">
+      <div class="col-lg-5 RP">
+        <img src="<%=r.image_url%>" alt="<%=r.name%> image" class="pic" >
+      </div>
+      <div class="col-lg-7 RPcontent">
+        <h3 class="title"><%=r.name%></h3>
+        <p class="p"><%=r.description%></p>
+      </div>
+    </div>
+  </div>
+  <%else%>
+  <div class="main1 col-md-12 mt-5">
+    <div class="card offset-3 col-9 shadow ">
+      <div class="col-lg-5 RP">
+        <img src="<%=r.image_url%>" alt="<%=r.name%> image" class="pic" >
+      </div>
+      <div class="col-lg-7 RPcontent">
+        <h3 class="title"><%=r.name%></h3>
+        <p class="p"><%=r.description%></p>
+      </div>
+    </div>
+  </div>
+  <%end%>
+  <%compter += 1%>
+  <%end%>
+</section>

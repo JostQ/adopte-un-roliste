@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :characters
-  has_many :game_session
-  has_and_belongs_to_many :game_session, through: :role
+  has_many :own_sessions, class_name: "GameSession", foreign_key: "creator_id"
+  has_many :roles
+  has_many :game_sessions, through: :roles
 end
