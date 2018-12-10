@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'profile/index'
   get 'roleplay/index'
   devise_for :users
   root 'home#index'
