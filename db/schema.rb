@@ -30,16 +30,22 @@ ActiveRecord::Schema.define(version: 2018_12_06_110843) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
+    t.bigint "recipient_id"
+    t.bigint "sender_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["recipient_id"], name: "index_comments_on_recipient_id"
+    t.index ["sender_id"], name: "index_comments_on_sender_id"
   end
 
   create_table "game_sessions", force: :cascade do |t|
     t.string "title"
     t.text "description"
+    t.bigint "creator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "roleplay_id"
+    t.index ["creator_id"], name: "index_game_sessions_on_creator_id"
     t.index ["roleplay_id"], name: "index_game_sessions_on_roleplay_id"
   end
 
@@ -61,7 +67,7 @@ ActiveRecord::Schema.define(version: 2018_12_06_110843) do
   end
 
   create_table "roles", force: :cascade do |t|
-    t.string "gm"
+    t.string "game_master", default: "f"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
