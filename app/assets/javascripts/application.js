@@ -25,7 +25,7 @@
 //= require countTo/jquery.countTo
 //= require slick/slick.min
 //= require template
-//= requirecustom
+//= require custom
 
 $(window).scroll(function(){
 	$('header').toggleClass('scrolled', $(this).scrollTop() > 0);
