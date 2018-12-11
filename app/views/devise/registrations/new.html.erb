@@ -12,28 +12,28 @@
 
               <form class="form-horizontal">
                 <div class="form-group has-feedback row">
-                  <%= f.label :pseudo, class:"col-md-3 control-label text-md-right col-form-label" %><span class="text-danger small">*</span><br />
+                  <label for="user_pseudo" class="col-md-3 control-label text-md-right col-form-label">Pseudo</label><span class="text-danger small">*</span><br />
                   <div class="col-md-8">
                     <%= f.text_field :pseudo, class:"form-control", id: "inputUserName", placeholder: "Pseudo", autofocus: true, autocomplete: "pseudo" %>
                   </div>
                 </div>
 
                 <div class="form-group has-feedback row">
-                  <%= f.label :email, class:"col-md-3 control-label text-md-right col-form-label" %><span class="text-danger small">*</span><br />
+                  <label for="user_email" class="col-md-3 control-label text-md-right col-form-label">Email</label><span class="text-danger small">*</span><br />
                   <div class="col-md-8">
                     <%= f.email_field :email, class: "form-control", id: "inputEmail", placeholder: "Email", autofocus: true, autocomplete: "email" %>
                   </div>
                 </div>
 
                 <div class="form-group has-feedback row">
-                  <%= f.label :password, class:"col-md-3 control-label text-md-right col-form-label" %><span class="text-danger small">*</span><br />
+                  <label for="user_password" class="col-md-3 control-label text-md-right col-form-label">Mot de passe</label><span class="text-danger small">*</span><br />
                   <div class="col-md-8">
                     <%= f.password_field :password, class: "form-control", id: "inputPassword", placeholder: "Mot de Passe", autocomplete: "new-password" %>
                   </div>
                 </div>
 
                 <div class="form-group has-feedback row">
-                  <%= f.label :password_confirmation, class:"col-md-3 control-label text-md-right col-form-label" %><span class="text-danger small">*</span><br />
+                  <label for="user_password" class="col-md-3 control-label text-md-right col-form-label">Confirmer le mot de passe</label><span class="text-danger small">*</span><br />
                   <div class="col-md-8">
                     <%= f.password_field :password_confirmation, class: "form-control", id: "inputPassword", placeholder: "Confirme ton mot de passe", autocomplete: "new-password" %>
                   </div>
