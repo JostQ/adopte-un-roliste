@@ -1,47 +1,125 @@
-<% @user.characters.each do |character| %></br>
-  <%= character.name %>
-<% end %>
-<% @user.game_sessions.each do |session| %></br>
-  <%= session.title %>
-<% end %>
-<% @comments.each do |comment| %>
-  <%=comment.recipient.pseudo%>
-<%end%>
-<h1 class="title large"><span class="text-default">Profil de </span><%=@user.pseudo%></br></h1>
-<div class="separator"></div>
-<p class="large">Editer votre profil pour inserez une description ici.</p>
-</div>
-</div>
-<!-- timeline grid start -->
-<!-- ================ -->
-<div class="timeline margin-clear clearfix">
-<% @user.game_sessions.each do |session| %>
-<!-- timeline grid item start -->
-<div class="timeline-item">
-<div class="white-bg hc-shadow p-20 text-center hc-element-invisible" data-animation-effect="fadeInUpSmall" data-effect-delay="100">
-  <%if session.characters.where(user_id == current_user.id)%>
-  <div class="timeline-date-label margin-clear clearfix">session.characters</div>
-  <%end%>
-  <h3 class="mt-4">session.title</h3>
-  <div class="separator"></div>
-  <p>Mauris dolor sapien, malesuada at interdum ut, hendrerit eget lorem. Nunc interdum mi neque, et  sollicitudin purus fermentum ut. Suspendisse faucibus nibh odio, a vehicula eros pharetra in. Maecenas  ullamcorper commodo rutrum.</p>
-</div>
-</div>
-<!-- timeline grid item end -->
+<div class="profile">
+  <section class="">
+    <%= link_to "Supprimer profil", edit_user_registration_path, class: "btn btn-group btn-default btn-animated float-right d-flex order-1"%> </br>
+    <div class="row justify-content-center">
+      <h1 class="title large mt-5"><span class="text-default">Profil de </span><%=@user.pseudo%></h1>
+    </div>
+    <% if current_user.id === @user.id %>
+    <div class="separator"></div>
+    <% end %>
+    <%= link_to "Editer", edit_user_registration_path, class: "btn btn-group btn-default btn-animated float-right"%>
+    <%if @user.description%>
+    <p class="large ml-5"><%= @user.description%></p>
+    <%else%>
+    <p class="large ml-5">Editer pour modifier.</p>
+    <%end%>
 
-<!-- timeline grid item start -->
-<div class="timeline-item pull-right">
-<div class="white-bg hc-shadow p-20 text-center hc-element-invisible" data-animation-effect="fadeInUpSmall" data-effect-delay="100">
-  <div class="timeline-date-label margin-clear clearfix">2009 - 2011</div>
-  <h3 class="mt-4">Freelancer</h3>
-  <div class="separator"></div>
-  <p>Mauris dolor sapien, malesuada at interdum ut, hendrerit eget lorem. Nunc interdum mi neque, et  sollicitudin purus fermentum ut. Suspendisse faucibus nibh odio, a vehicula eros pharetra in. Maecenas  ullamcorper commodo rutrum.</p>
+    <div class="separator"></div>
+    <!-- timeline grid start -->
+    <!-- ================ -->
+    <div class="timeline margin-clear clearfix">
+      <%compter = 0%>
+      <% @user.game_sessions.each do |session| %>
+      <%if compter % 2 == 0%>
+      <!-- timeline grid item start -->
+      <div class="timeline-item">
+        <div class="white-bg hc-shadow p-20 text-center hc-element-invisible" data-animation-effect="fadeInUpSmall" data-effect-delay="100">
+          <% if session.roles.find_by(user_id: @user.id).game_master != 'f' %>
+          <div class="margin-clear clearfix greenblock">Game Master</div>
+          <% end %>
+          <%if session.characters.where(user_id: @user.id)%>
+          <% session.characters.each do |character| %>
+          <div class="align-items-center margin-clear clearfix redblock"><%= character.pseudo %><br>Niveau <%= character.level %></div>
+          <% end %>
+          <% end %>
+          <h3 class="mt-4 ses-title"><%= session.title%></h3>
+          <div class="separator"></div>
+          <p><%= session.description%></p>
+        </div>
+      </div>
+      <!-- timeline grid item end -->
+      <% else %>
+      <!-- timeline grid item start -->
+      <div class="timeline-item pull-right">
+        <div class="white-bg hc-shadow p-20 text-center hc-element-invisible" data-animation-effect="fadeInUpSmall" data-effect-delay="100">
+          <% if session.roles.find_by(user_id: @user.id).game_master != 'f' %>
+          <div class="margin-clear clearfix greenblock">Game Master</div>
+          <% end %>
+          <%if session.characters.where(user_id: @user.id)%>
+          <% session.characters.each do |character| %>
+          <div class="margin-clear clearfix redblock"><%= character.pseudo %> <br>Niveau <%= character.level %></div>
+          <% end %>
+          <% end %>
+          <h3 class="mt-4 ses-title"><%= session.title%></h3>
+          <div class="separator"></div>
+          <p><%= session.description%></p>
+        </div>
+      </div>
+      <!-- timeline grid item end -->
+      <% end %>
+      <%compter += 1%>
+      <% end %>
+    </div>
+    <!-- timeline grid end -->
+  </section>
+  <!-- section end -->
+  <section class="">
+    <%charac_count = 0%>
+    <div id="c  arouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <% @user.game_sessions.each do |session| %>
+          <% session.characters.each do |character| %>
+            <%if charac_count == 0%>
+              <div class="carousel-item active pl-5 pt-5">
+                <h2><%=character.pseudo%> - <%=character.level%></h2>
+                <p class="session-card"><%=character.game_session.title%></p>
+                <div class="row">
+                  <div class="primary-specs">
+                    <h5 class="Bold">Caractéristique principale:</h5>
+                    <%character.primary_specs.each do |prim|%>
+                    <span class="pl-5"><%=prim.name%>:<%=prim.value%></span> <br>
+                    <%end%>
+                  </div>
+                  <div class="secondary-specs">
+                    <h5 class="Bold">Caractéristique secondaire:</h5>
+                    <%character.secondary_specs.each do |sec|%>
+                    <span class="pl-5"><%=sec.name%>:<%=sec.value%></span> <br>
+                    <%end%>
+                  </div>
+                  <div class="inventory">
+                    <h5 class="Bold">Iventaire:</h5>
+                    <%character.iventories.each do |inv|%>
+                    <span class="pl-5"><%=inv.name%>:<%=inv.value%></span> <br>
+                    <%end%>
+                  </div>
+                </div>
+                <img class="d-block w-100" alt="<%charac_count%>">
+              </div>
+            <% else %>
+              <div class="carousel-item pl-5 pt-5">
+                <h2><%=character.pseudo%> - <%=character.level%></h2>
+                <p class="session-card"><%=character.game_session.title%></p>
+                <img class="d-block w-100" alt="<%charac_count%>">
+                <div class="primary-specs">
+                  <h5 class="Bold">Caractéristique principale:</h5>
+                  <%character.primary_specs.each do |prim|%>
+                  <span class="pl-5"><%=prim.name%>:<%=prim.value%></span> <br>
+                  <%end%>
+                </div>
+              </div>
+            <%end%>
+          <%end%>
+          <%charac_count += 1%>
+        <%end%>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </section>
 </div>
-</div>
-<!-- timeline grid item end -->
-<% end %>
-</div>
-<!-- timeline grid end -->
-</div>
-</section>
-<!-- section end -->
