@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_06_110843) do
+ActiveRecord::Schema.define(version: 2018_12_11_112129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,8 +45,21 @@ ActiveRecord::Schema.define(version: 2018_12_06_110843) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "roleplay_id"
+    t.boolean "end_game", default: false
     t.index ["creator_id"], name: "index_game_sessions_on_creator_id"
     t.index ["roleplay_id"], name: "index_game_sessions_on_roleplay_id"
+  end
+
+  create_table "opinions", force: :cascade do |t|
+    t.text "content"
+    t.bigint "sender_id"
+    t.bigint "recipient_id"
+    t.bigint "game_sessions_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_sessions_id"], name: "index_opinions_on_game_sessions_id"
+    t.index ["recipient_id"], name: "index_opinions_on_recipient_id"
+    t.index ["sender_id"], name: "index_opinions_on_sender_id"
   end
 
   create_table "primary_specs", force: :cascade do |t|
