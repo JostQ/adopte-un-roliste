@@ -1,0 +1,47 @@
+<% @user.characters.each do |character| %></br>
+  <%= character.name %>
+<% end %>
+<% @user.game_sessions.each do |session| %></br>
+  <%= session.title %>
+<% end %>
+<% @comments.each do |comment| %>
+  <%=comment.recipient.pseudo%>
+<%end%>
+<h1 class="title large"><span class="text-default">Profil de </span><%=@user.pseudo%></br></h1>
+<div class="separator"></div>
+<p class="large">Editer votre profil pour inserez une description ici.</p>
+</div>
+</div>
+<!-- timeline grid start -->
+<!-- ================ -->
+<div class="timeline margin-clear clearfix">
+<% @user.game_sessions.each do |session| %>
+<!-- timeline grid item start -->
+<div class="timeline-item">
+<div class="white-bg hc-shadow p-20 text-center hc-element-invisible" data-animation-effect="fadeInUpSmall" data-effect-delay="100">
+  <%if session.characters.where(user_id == current_user.id)%>
+  <div class="timeline-date-label margin-clear clearfix">session.characters</div>
+  <%end%>
+  <h3 class="mt-4">session.title</h3>
+  <div class="separator"></div>
+  <p>Mauris dolor sapien, malesuada at interdum ut, hendrerit eget lorem. Nunc interdum mi neque, et  sollicitudin purus fermentum ut. Suspendisse faucibus nibh odio, a vehicula eros pharetra in. Maecenas  ullamcorper commodo rutrum.</p>
+</div>
+</div>
+<!-- timeline grid item end -->
+
+<!-- timeline grid item start -->
+<div class="timeline-item pull-right">
+<div class="white-bg hc-shadow p-20 text-center hc-element-invisible" data-animation-effect="fadeInUpSmall" data-effect-delay="100">
+  <div class="timeline-date-label margin-clear clearfix">2009 - 2011</div>
+  <h3 class="mt-4">Freelancer</h3>
+  <div class="separator"></div>
+  <p>Mauris dolor sapien, malesuada at interdum ut, hendrerit eget lorem. Nunc interdum mi neque, et  sollicitudin purus fermentum ut. Suspendisse faucibus nibh odio, a vehicula eros pharetra in. Maecenas  ullamcorper commodo rutrum.</p>
+</div>
+</div>
+<!-- timeline grid item end -->
+<% end %>
+</div>
+<!-- timeline grid end -->
+</div>
+</section>
+<!-- section end -->

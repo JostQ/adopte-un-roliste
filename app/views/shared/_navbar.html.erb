@@ -14,8 +14,13 @@
       <div class="dropdown">
         <a class="dropbtn"><%= image_tag "avatar.png", class:"avatar" %></a>
         <div class="dropdown-content">
-          <a href="#">Se connecter</a>
-          <a href="#">S'enregistrer</a>
+          <% if user_session %>
+            <%= link_to "Mon profil" %>
+            <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %>
+          <% else %>
+            <%= link_to "Se connecter", new_user_session_path %>
+            <%= link_to "S'enregistrer", new_user_registration_path %>
+          <% end %>
         </div>
       </div>
     </div>
@@ -33,29 +38,29 @@
                         <li>
                           <%= link_to "Les Univers", roleplay_index_path, class: "nav-link"  %>
                         </li>
-                    <!-- mega-menu start -->
+                        <!-- mega-menu start -->
                         <li>
                           <%= link_to root_path do %>
-                            <%= image_tag "logo2.png", class: "logo_nav" %>
+                          <%= image_tag "logo2.png", class: "logo_nav" %>
                           <% end %>
                         </li>
-                    <!-- mega-menu end -->
+                        <!-- mega-menu end -->
                         <li>
                           <%= link_to "Partir à l'aventure", root_path, class: "nav-link"  %>
                         </li>
                       </ul>
-                  <!-- main-menu end -->
+                      <!-- main-menu end -->
                     </div>
                   </nav>
                 </div>
-            <!-- main-navigation end -->
+                <!-- main-navigation end -->
               </div>
-            <!-- header-second end -->
+              <!-- header-second end -->
 
-          </div>
+            </div>
           </div>
         </div>
       </div>
     </header>
     <!-- header end -->
-    </div>
+  </div>
