@@ -71,7 +71,11 @@
             <%if charac_count == 0%>
               <div class="carousel-item active pl-5 pt-5">
                 <h2><%=character.pseudo%> - niveau <%=character.level%></h2>
-                <p class="session-card"><%=character.game_session.title%></p>
+                <% if character.game_session %>
+                  <p class="session-card row justify-content-center">Session de jeu en cours : <%=character.game_session.title%></p>
+                <% else %>
+                  <p class="session-card"></p>
+                <% end %>
                 <div class="row">
                   <div class="primary-specs">
                     <h5 class="Bold">Caractéristique principale :</h5>
