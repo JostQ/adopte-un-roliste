@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.jdr-background {
+  background-image: url('https://images5.alphacoders.com/548/548279.jpg');
+  background-size: cover;
+  height:100vh;
+  z-index: 0;
+}
+
 .main-container {
   background-color: rgb(255,232,190)!important;
   height: 275px;

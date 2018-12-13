@@ -1,5 +1,6 @@
 class ProfileController < ApplicationController
-  def index
-    @user = User.find(current_user.id)
+  def show
+    @user = User.find(params[:id])
+    @comments = Comment.where(recipient_id: params[:id])
   end
 end

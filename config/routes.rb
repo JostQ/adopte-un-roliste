@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  get 'profile/index'
+  get 'adventure/create_and_research'
+  get 'game_sessions/index'
+  get 'profile/show/:id', to: 'profile#show'
   get 'roleplay/index'
   devise_for :users
   root 'home#index'
   get 'opinions', to: 'opinions#new'
   post 'opinions', to: 'opinions#create'
-  get 'test', to: 'opinions#test'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
