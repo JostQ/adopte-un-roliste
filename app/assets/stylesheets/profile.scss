@@ -1,6 +1,10 @@
 // Place all the styles related to the Profile controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.desc {
+  overflow: hidden;
+  word-wrap: break-word;
+}
 .redblock {
   background-color: #992020;
   padding-top: 10px;

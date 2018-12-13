@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :characters
   get 'adventure/create_and_research'
   get 'game_sessions/index'
   get 'profile/show/:id', to: 'profile#show'

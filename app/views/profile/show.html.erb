@@ -9,7 +9,7 @@
     <% end %>
     <%= link_to "Editer", edit_user_registration_path, class: "btn btn-group btn-default btn-animated float-right"%>
     <%if @user.description%>
-    <p class="large ml-5"><%= @user.description%></p>
+    <p class="large ml-5 desc"><%= @user.description%></p>
     <%else%>
     <p class="large ml-5">Editer pour modifier.</p>
     <%end%>
