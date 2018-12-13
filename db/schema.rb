@@ -10,6 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 2018_12_13_130829) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,7 +50,12 @@
     t.index ["roleplay_id"], name: "index_game_sessions_on_roleplay_id"
   end
 
-<<<<<<< HEAD
+  create_table "inventories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "opinions", force: :cascade do |t|
     t.text "content"
     t.bigint "sender_id"
@@ -59,12 +66,6 @@
     t.index ["game_session_id"], name: "index_opinions_on_game_session_id"
     t.index ["recipient_id"], name: "index_opinions_on_recipient_id"
     t.index ["sender_id"], name: "index_opinions_on_sender_id"
-=======
-  create_table "inventories", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
->>>>>>> e42ff5b700be9756ebe0ab8b93d5b1f8da234b69
   end
 
   create_table "primary_specs", force: :cascade do |t|
@@ -110,10 +111,15 @@
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "description"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
