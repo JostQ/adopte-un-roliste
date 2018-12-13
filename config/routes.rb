@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :characters
-  get 'adventure/create_and_research'
+  get 'adventure', to: 'adventure#create_and_research'
+  post 'adventure', to: 'adventure#create'
   get 'game_sessions/index'
   get 'profile/show/:id', to: 'profile#show'
   get 'roleplay/index'

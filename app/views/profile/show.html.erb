@@ -71,7 +71,7 @@
           <% session.characters.each do |character| %>
             <%if charac_count == 0%>
               <div class="carousel-item active pl-5 pt-5">
-                <h2><%=character.pseudo%> - <%=character.level%></h2>
+                <h2><%=character.pseudo%> - niveau <%=character.level%></h2>
                 <p class="session-card"><%=character.game_session.title%></p>
                 <div class="row">
                   <div class="primary-specs">
@@ -88,8 +88,8 @@
                   </div>
                   <div class="inventory">
                     <h5 class="Bold">Iventaire:</h5>
-                    <%character.iventories.each do |inv|%>
-                    <span class="pl-5"><%=inv.name%>:<%=inv.value%></span> <br>
+                    <%character.inventories.each do |inv|%>
+                    <span class="pl-5"><%=inv.name%></span> <br>
                     <%end%>
                   </div>
                 </div>
