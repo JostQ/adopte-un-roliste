@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_12_125313) do
+ActiveRecord::Schema.define(version: 2018_12_12_142908) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,8 @@ ActiveRecord::Schema.define(version: 2018_12_12_125313) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "character_id"
+    t.index ["character_id"], name: "index_inventories_on_character_id"
   end
 
   create_table "primary_specs", force: :cascade do |t|
@@ -110,6 +112,7 @@ ActiveRecord::Schema.define(version: 2018_12_12_125313) do
   add_foreign_key "characters", "roleplays"
   add_foreign_key "characters", "users"
   add_foreign_key "game_sessions", "roleplays"
+  add_foreign_key "inventories", "characters"
   add_foreign_key "primary_specs", "characters"
   add_foreign_key "roles", "game_sessions"
   add_foreign_key "roles", "users"
