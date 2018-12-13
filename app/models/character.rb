@@ -6,4 +6,5 @@ class Character < ApplicationRecord
   belongs_to :roleplay
   has_many :primary_specs
   has_many :secondary_specs
+  has_many :inventories
 end
