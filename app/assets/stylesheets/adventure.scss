@@ -64,3 +64,28 @@
   display: flex;
   justify-content: center;
 }
+
+.game-view {
+  border: solid black 1px;
+  width: 85%;
+  height: auto;
+}
+
+.left-side{
+  width: 67%;
+  margin-top: 2%;
+}
+
+.top-side{
+  height: 67%;
+}
+
+.bot-side{
+  height: 30%;
+  margin-top: 3%;
+}
+
+.right-side{
+  width: 30%;
+  margin-top: 2%;
+}

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'adventure', to: 'adventure#create_and_research'
+  get 'adventure/show/:id', to: 'adventure#show'
   post 'adventure', to: 'adventure#create'
   get 'game_sessions/index'
   get 'profile/show/:id', to: 'profile#show'

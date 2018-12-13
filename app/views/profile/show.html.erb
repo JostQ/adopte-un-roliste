@@ -75,19 +75,19 @@
                 <p class="session-card"><%=character.game_session.title%></p>
                 <div class="row">
                   <div class="primary-specs">
-                    <h5 class="Bold">Caractéristique principale:</h5>
+                    <h5 class="Bold">Caractéristique principale :</h5>
                     <%character.primary_specs.each do |prim|%>
-                    <span class="pl-5"><%=prim.name%>:<%=prim.value%></span> <br>
+                    <span class="pl-5"><%=prim.name%> : <%=prim.value%></span> <br>
                     <%end%>
                   </div>
                   <div class="secondary-specs">
-                    <h5 class="Bold">Caractéristique secondaire:</h5>
+                    <h5 class="Bold">Caractéristique secondaire :</h5>
                     <%character.secondary_specs.each do |sec|%>
-                    <span class="pl-5"><%=sec.name%>:<%=sec.value%></span> <br>
+                    <span class="pl-5"><%=sec.name%> : <%=sec.value%></span> <br>
                     <%end%>
                   </div>
                   <div class="inventory">
-                    <h5 class="Bold">Iventaire:</h5>
+                    <h5 class="Bold">Iventaire :</h5>
                     <%character.inventories.each do |inv|%>
                     <span class="pl-5"><%=inv.name%></span> <br>
                     <%end%>
@@ -101,9 +101,9 @@
                 <p class="session-card"><%=character.game_session.title%></p>
                 <img class="d-block w-100" alt="<%charac_count%>">
                 <div class="primary-specs">
-                  <h5 class="Bold">Caractéristique principale:</h5>
+                  <h5 class="Bold">Caractéristique principale :</h5>
                   <%character.primary_specs.each do |prim|%>
-                  <span class="pl-5"><%=prim.name%>:<%=prim.value%></span> <br>
+                  <span class="pl-5"><%=prim.name%> : <%=prim.value%></span> <br>
                   <%end%>
                 </div>
               </div>
