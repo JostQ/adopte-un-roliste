@@ -10,7 +10,11 @@
     </div>
     <div class="right-side col-md-4">
       <div class="select-charac col-md-12">
-        choix du charac
+        <select class="form-control col-md-6">
+          <%@character.each do |char|%>
+            <option><%=char.pseudo%></option>
+          <%end%>
+        </select>
       </div>
       <div class="info-charach col-md-12">
         info charac selectionné

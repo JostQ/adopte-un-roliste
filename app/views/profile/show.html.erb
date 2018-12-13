@@ -67,8 +67,7 @@
     <%charac_count = 0%>
     <div id="c  arouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
-        <% @user.game_sessions.each do |session| %>
-          <% session.characters.each do |character| %>
+        <% @user.characters.each do |character| %>
             <%if charac_count == 0%>
               <div class="carousel-item active pl-5 pt-5">
                 <h2><%=character.pseudo%> - niveau <%=character.level%></h2>
@@ -107,7 +106,6 @@
                   <%end%>
                 </div>
               </div>
-            <%end%>
           <%end%>
           <%charac_count += 1%>
         <%end%>

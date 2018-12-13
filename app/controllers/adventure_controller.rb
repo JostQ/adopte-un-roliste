@@ -8,5 +8,6 @@ class AdventureController < ApplicationController
   end
   def show
     @game = GameSession.find(params[:id])
+    @characters = @game.characters
   end
 end
