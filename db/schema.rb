@@ -10,6 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 2018_12_13_130829) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,10 +54,10 @@
     t.text "content"
     t.bigint "sender_id"
     t.bigint "recipient_id"
-    t.bigint "game_sessions_id"
+    t.bigint "game_session_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["game_sessions_id"], name: "index_opinions_on_game_sessions_id"
+    t.index ["game_session_id"], name: "index_opinions_on_game_session_id"
     t.index ["recipient_id"], name: "index_opinions_on_recipient_id"
     t.index ["sender_id"], name: "index_opinions_on_sender_id"
   end

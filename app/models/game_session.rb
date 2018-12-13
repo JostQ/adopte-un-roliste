@@ -1,5 +1,5 @@
 class GameSession < ApplicationRecord
-  validates :title, uniqueness: { scope: :end_game, -> { where(end_game: false) } }
+  validates :title, uniqueness: true
 
   belongs_to :roleplay
   belongs_to :creator, class_name: "User"

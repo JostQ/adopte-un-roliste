@@ -12,7 +12,7 @@ def end_day(recipient, game_session)
 
 end
 
-def players_to_gamemaster(sender, game_session, recipient, opinion)
+def player_to_gamemaster(sender, game_session, recipient, opinion)
 
   @player = sender
   @session = game_session
@@ -20,6 +20,7 @@ def players_to_gamemaster(sender, game_session, recipient, opinion)
   @opinion = opinion
 
   mail(
+    from: 'adopte1roliste@gmail.com',
     to: @game_master.email,
     subject: "#{@session.title} : Avis de #{@player.pseudo}"
   )

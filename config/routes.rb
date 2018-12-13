@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'opinions', to: 'opinions#new'
   post 'opinions', to: 'opinions#create'
+  get 'test', to: 'opinions#test'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
