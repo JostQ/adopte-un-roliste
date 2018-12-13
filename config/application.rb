@@ -13,6 +13,8 @@ module AdopteUnRoliste
 
     config.action_mailer.delivery_method = :mailjet
 
+    config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
