@@ -1,2 +1,19 @@
-<h1>GameSessions#index</h1>
-<p>Find me in app/views/game_sessions/index.html.erb</p>
+<div id="list_game_session">
+  <% @game_sessions.each do |game| %>
+    <a href="/adventure/<%= game.id %>">
+      <div class="card border rounded shadow text-white">
+        <div class="card-body">
+          <h5 class="card-title">
+            <%= game.title %>
+          </h5>
+          JdR : <%= game.roleplay.name %>
+          <br>
+          Ville : <%= game.city %>
+        </div>
+        <div class="card-footer">
+          <%= Role.where(game_session: game).length %>/<%= game.players_limit %>
+        </div>
+      </div>
+    </a>
+  <% end %>
+</div>

@@ -64,30 +64,11 @@
     <div class="searchbar">
       <div class="form-group">
         <label></label>
-        <input type="text" id="search_game" class="form-control" placeholder="Quel est le nom de la partie souhaitée ?">
+        <input type="text" id="search_game" class="form-control" placeholder="Dans quelle ville souhaites-tu faire ta session ?">
       </div>
     </div>
-    <div class="search_result">
-      <%compter = 1%>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Titre</th>
-            <th>Game master</th>
-          </tr>
-        </thead>
-        <tbody>
-          <%while compter <= 14%>
-          <tr>
-            <td><%=compter%></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <%compter += 1%>
-          <%end%>
-        </tbody>
-      </table>
+    <div id="search_result">
+
     </div>
   </div>
 </div>

@@ -147,11 +147,28 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
+    <%= link_to "Nouveau personnage", new_character_path, class: "btn btn-group btn-default btn-animated" %>
   </section>
-  <%= link_to "Nouveau personnage", new_character_path, class: "btn btn-group btn-default btn-animated" %>
-  <div class="comments col-md-12">
-    <div class="col-md-3 mt-5">
-
+  <div class="comments row pb-5">
+    <div class="card card-comments col-md-3 mt-5">
+      <div class="card-body">
+        <h3 class="com-sender col-md-12">Laissez lui un commentaire !</h3>
+        <span class="com-content row col-md-12">
+          <%= form_for @comment, url: comments_path, html: {class: "com_form"} do |f| %>
+          <%= f.hidden_field :recipient, value: @user.id %>
+          <%= f.text_area :content, size: "50x4" %>
+          <%= f.submit "Create" %>
+          <% end %>
+        </span>
+      </div>
     </div>
+    <%@comments.each do |com|%>
+      <div class="card card-comments col-md-3 mt-5">
+        <div class="card-body">
+          <h3 class="com-sender col-md-12">De <%=com.sender.pseudo%></h3>
+          <span class="com-content row col-md-12"><%=com.content%></span>
+        </div>
+      </div>
+    <%end%>
   </div>
 </div>
