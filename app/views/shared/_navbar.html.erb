@@ -11,6 +11,20 @@
     <!-- "colored": colored version of header top e.g. class="header-top colored" -->
     <!-- ================ -->
     <div class="header-top">
+
+      <% if notice %>
+          <div class="alert alert-success col-md-2 m-0"><%= notice %></div>
+      <% end %>
+      <% if alert %>
+          <div class="alert alert-danger col-md-2 m-0"><%= alert %></div>
+      <% end %>
+      <% if flash["validate"] %>
+        <div class="alert alert-success col-md-2 m-0"><%= flash["validate"] %></div>
+      <% end %>
+
+      <% if flash["error"] %>
+          <div class="alert alert-danger col-md-2 m-0"><%= flash["error"] %></div>
+      <% end %>
       <div class="dropdown">
         <a class="dropbtn"><%= image_tag "avatar.png", class:"avatar" %></a>
         <div class="dropdown-content">
