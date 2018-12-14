@@ -19,7 +19,6 @@ class CharactersController < ApplicationController
     character.description = character_info["description"]
     character.roleplay = Roleplay.find(character_info[:roleplay])
     character.user = current_user
-    character.save
 
     if character.save
       error[:character] = "Character Error"

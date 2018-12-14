@@ -5,13 +5,13 @@
         MAP
       </div>
       <div class="bot-side mt-3 col-md-12">
-        RDV
+        <span class="date col-md-12 ml-5 pl-5"><%=(@game.date).strftime('La prochaine rencontre se déroulera à %H:%M le %d:%b:%Y')%></span>
       </div>
     </div>
     <div class="right-side col-md-4">
       <div class="select-charac col-md-12">
-        <select class="form-control col-md-6">
-          <%@character.each do |char|%>
+        <select class="form-control col-md-12 mt-1">
+          <%@characters.each do |char|%>
             <option><%=char.pseudo%></option>
           <%end%>
         </select>
@@ -27,6 +27,9 @@
       </div>
       <div class="inv-charac col-md-12">
         inv-charac
+      </div>
+      <div class="link-profile col-md-12">
+        link
       </div>
     </div>
   </div>
