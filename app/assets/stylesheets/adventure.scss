@@ -7,7 +7,7 @@
   height: auto;
   background-position: center;
   padding-bottom: 13%;
-  width: 100vw;
+  width: 100%;
 }
 
 .session {
@@ -45,7 +45,7 @@
   margin-top: 7%;
 }
 
-.search_result{
+#search_result{
   display: flex;
   justify-content: center;
   width: 70%;
