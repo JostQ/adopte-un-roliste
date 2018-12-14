@@ -1,24 +1,41 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## FINE EQUIPE
+ <strong> Quentin </strong>(@Dremsis)</br>
+ <strong> Marin </strong>(@Marin)</br>
+ <strong> Yossi </strong>(@Yossi)</br>
+## Ruby Versions:
 
-Things you may want to cover:
+* Ruby : v-2.5.1
+* Rails : v-5.2.1
 
-* Ruby version
+## Ce repo contient:
+* Une version en prod : <strong>https://adopte-un-roliste.herokuapp.com/</strong>
+* Une version local
+* Une feature creation/recherche de session et la session qui va avec 
+* Un profil qui vous permet de retrouver vos sessions, vos personnage et les commentaires que l'ont vous laisse
+* Une feature de creation de personnage
+* Une feature mailjet pour les differents mails (confirmation, opinion apres partie)
+* Une map grace a une api map
+* Une feature Rendez vous qui permet au Mj de donner rendez vous à ses joueurs
+* Quelques petites surprises en ajax
+</br>
 
-* System dependencies
+## Ce que le repo ne contient pas:
+* Comme prévu par Felix la features tchat a été abandonnée.
 
-* Configuration
+## Lancemant de l'app:
 
-* Database creation
+* $git clone https://github.com/CapellutoY/chatonronronbootik.git
 
-* Database initialization
+* $bundle install
 
-* How to run the test suite
+* $rails db:create
 
-* Services (job queues, cache servers, search engines, etc.)
+* $rails db:migrate
 
-* Deployment instructions
+* $rails db:seed
 
-* ...
+* $rails server
+
+*  http://localhost:3000/

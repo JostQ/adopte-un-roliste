@@ -1,13 +1,17 @@
 <div class="profile">
   <section class="">
+    <% if user_signed_in? %>
     <%= link_to "Supprimer profil", edit_user_registration_path, class: "btn btn-group btn-default btn-animated float-right d-flex order-1"%> </br>
+    <% end %>
     <div class="row justify-content-center">
       <h1 class="title large mt-5"><span class="text-default">Profil de </span><%=@user.pseudo%></h1>
     </div>
+    <% if user_signed_in? %>
     <% if current_user.id === @user.id %>
     <div class="separator"></div>
     <% end %>
     <%= link_to "Editer", edit_user_registration_path, class: "btn btn-group btn-default btn-animated float-right"%>
+    <% end %>
     <%if @user.description%>
     <p class="large ml-5 desc"><%= @user.description%></p>
     <%else%>
@@ -35,7 +39,7 @@
           <h3 class="mt-4 ses-title"><%= session.title%></h3>
           <div class="separator"></div>
           <p><%= session.description%></p>
-          <a href="/adventure/show/<%=session.id%>">Entrer</a>
+          <a href="/adventure/<%=session.id%>">Entrer</a>
         </div>
       </div>
       <!-- timeline grid item end -->
@@ -143,6 +147,7 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
+    <%= link_to "Nouveau personnage", new_character_path, class: "btn btn-group btn-default btn-animated" %>
   </section>
   <div class="comments row pb-5">
     <div class="card card-comments col-md-3 mt-5">
@@ -156,14 +161,16 @@
           <% end %>
         </span>
       </div>
-    </div>
-    <%@comments.each do |com|%>
-    <div class="card card-comments col-md-3 mt-5">
-      <div class="card-body">
-        <h3 class="com-sender col-md-12">De <%=com.sender.pseudo%></h3>
-        <span class="com-content row col-md-12"><%=com.content%></span>
+      <div class="comments col-md-12">
+        <div class="col-md-3 mt-5">
+        </div>
+        <%@comments.each do |com|%>
+        <div class="card card-comments col-md-3 mt-5">
+          <div class="card-body">
+            <h3 class="com-sender col-md-12">De <%=com.sender.pseudo%></h3>
+            <span class="com-content row col-md-12"><%=com.content%></span>
+          </div>
+        </div>
+        <%end%>
       </div>
     </div>
-    <%end%>
-  </div>
-</div>

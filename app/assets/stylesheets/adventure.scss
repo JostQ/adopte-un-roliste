@@ -7,6 +7,16 @@
   height: auto;
   background-position: center;
   padding-bottom: 13%;
+  width: 100vw;
+}
+
+.session {
+  background-image: url('https://i.imgur.com/RIhHH2f.jpg');
+  background-position: top center;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100%;
+  width: 100vw;
 }
 
 .create{
@@ -63,30 +73,27 @@
 .gobtn {
   display: flex;
   justify-content: center;
+  width: 40%;
 }
 
 .game-view {
   background-color: rgb(125, 112, 98);
-  border: solid black 1px;
   width: 85%;
   height: 70vh;
 }
 
 .left-side{
   background-color: rgb(125, 112, 98);
-  border: solid black 1px;
   width: 67%;
   margin-top: 2%;
 }
 
 .top-side{
   background-image: url("https://img.freepik.com/photos-libre/texture-de-papier-brun-pour-l-39-arriere-plan_1373-528.jpg?size=338&ext=jpg")!important;
-  border: solid black 1px;
   height: 67%;
 }
 
 .bot-side{
-  border: solid black 1px;
   background-image: url("https://img.freepik.com/photos-libre/texture-de-papier-brun-pour-l-39-arriere-plan_1373-528.jpg?size=338&ext=jpg")!important;
   height: 27%;
   margin-top: 3%;
@@ -98,49 +105,42 @@
 
 .right-side{
   background-color: rgb(125, 112, 98);
-  border: solid black 1px;
   width: 30%;
   margin-top: 2%;
 }
 
 .select-charac{
   background-image: url("https://img.freepik.com/photos-libre/texture-de-papier-brun-pour-l-39-arriere-plan_1373-528.jpg?size=338&ext=jpg")!important;
-  border: solid black 1px;
   margin-top: 2%;
   height: 8%;
 }
 
 .info-charach{
   background-image: url("https://img.freepik.com/photos-libre/texture-de-papier-brun-pour-l-39-arriere-plan_1373-528.jpg?size=338&ext=jpg")!important;
-  border: solid black 1px;
   margin-top: 3%;
   height: 18%;
 }
 
 .prim-specs{
   background-image: url("https://img.freepik.com/photos-libre/texture-de-papier-brun-pour-l-39-arriere-plan_1373-528.jpg?size=338&ext=jpg")!important;
-  border: solid black 1px;
   margin-top: 3%;
   height: 18%;
 }
 
 .sec-specs{
   background-image: url("https://img.freepik.com/photos-libre/texture-de-papier-brun-pour-l-39-arriere-plan_1373-528.jpg?size=338&ext=jpg")!important;
-  border: solid black 1px;
   margin-top: 3%;
   height: 18%;
 }
 
 .inv-charac{
   background-image: url("https://img.freepik.com/photos-libre/texture-de-papier-brun-pour-l-39-arriere-plan_1373-528.jpg?size=338&ext=jpg")!important;
-  border: solid black 1px;
   margin-top: 3%;
   height: 18%;
 }
 
 .link-profile{
   background-image: url("https://img.freepik.com/photos-libre/texture-de-papier-brun-pour-l-39-arriere-plan_1373-528.jpg?size=338&ext=jpg")!important;
-  border: solid black 1px;
   margin-top: 3%;
   height: 6%;
 }

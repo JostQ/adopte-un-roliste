@@ -64,4 +64,10 @@ $(document).on('turbolinks:load', function() {
 		$("#input-item").append("<input type='text' class='form-control m-3' name='items[" + k + "]'>")
 	});
 
+  $('#search_game').on('keyup', function(){
+    if($('#search_game').val().length > 2 ){
+      $("#search_result").load('/game_sessions?search=' + $("#search_game").val() + ' #list_game_session')
+    }
+  })
+
 })

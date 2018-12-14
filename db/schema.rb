@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_14_042251) do
+ActiveRecord::Schema.define(version: 2018_12_14_121712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 2018_12_14_042251) do
     t.bigint "roleplay_id"
     t.boolean "end_game", default: false
     t.datetime "date"
+    t.integer "players_limit"
+    t.string "city"
     t.index ["creator_id"], name: "index_game_sessions_on_creator_id"
     t.index ["roleplay_id"], name: "index_game_sessions_on_roleplay_id"
   end

@@ -28,7 +28,7 @@
         <a class="dropbtn"><%= image_tag "avatar.png", class:"avatar" %></a>
         <div class="dropdown-content">
           <% if user_session %>
-            <%= link_to "Mon profil", "/profile/show/#{current_user.id}"%>
+            <%= link_to "Mon profil", "/profile/#{current_user.id}"%>
             <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %>
           <% else %>
             <%= link_to "Se connecter", new_user_session_path %>
