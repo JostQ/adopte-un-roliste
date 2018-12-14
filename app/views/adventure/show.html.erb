@@ -10,9 +10,9 @@
         <% end %>
       </div>
     </div>
-    <div class="right-side col-md-4">
+    <div class="right-side col-md-4 mt-3">
       <div class="select-charac col-md-12">
-        <select class="col-md-12 mt-1" id="characters_select">
+        <select class="col-md-12 mt-2" id="characters_select">
           <option value="gm"><%= @gm.pseudo %> (Maitre du Jeu)</option>
           <% @characters.each do |char|%>
             <option value="<%= char %>"><%=char.pseudo%></option>
