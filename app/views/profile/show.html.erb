@@ -1,21 +1,21 @@
 <div class="profile">
   <section class="">
     <% if user_signed_in? %>
-    <%= link_to "Supprimer profil", edit_user_registration_path, class: "btn btn-group btn-default btn-animated float-right d-flex order-1"%> </br>
+      <%= link_to "Supprimer profil", edit_user_registration_path, class: "btn btn-group btn-default btn-animated float-right d-flex order-1"%> </br>
     <% end %>
     <div class="row justify-content-center">
       <h1 class="title large mt-5"><span class="text-default">Profil de </span><%=@user.pseudo%></h1>
     </div>
     <% if user_signed_in? %>
-    <% if current_user.id === @user.id %>
-    <div class="separator"></div>
-    <% end %>
+      <% if current_user.id === @user.id %>
+      <div class="separator"></div>
+      <% end %>
     <%= link_to "Editer", edit_user_registration_path, class: "btn btn-group btn-default btn-animated float-right"%>
     <% end %>
     <%if @user.description%>
-    <p class="large ml-5 desc"><%= @user.description%></p>
+      <p class="large ml-5 desc"><%= @user.description%></p>
     <%else%>
-    <p class="large ml-5">Editer pour modifier.</p>
+      <p class="large ml-5">Editer pour modifier.</p>
     <%end%>
 
     <div class="separator"></div>
@@ -24,18 +24,19 @@
     <div class="timeline margin-clear clearfix">
       <%compter = 0%>
       <% @user.game_sessions.each do |session| %>
-      <%if compter % 2 == 0%>
-      <!-- timeline grid item start -->
-      <div class="timeline-item">
-        <div class="white-bg hc-shadow p-20 text-center hc-element-invisible" data-animation-effect="fadeInUpSmall" data-effect-delay="100">
-          <% if session.roles.find_by(user_id: @user.id).game_master != 'f' %>
-          <div class="margin-clear clearfix greenblock">Game Master</div>
-          <% end %>
-          <%if session.characters.where(user_id: @user.id)%>
-          <% session.characters.each do |character| %>
-          <div class="align-items-center margin-clear clearfix redblock"><%= character.pseudo %><br>Niveau <%= character.level %></div>
-          <% end %>
-          <% end %>
+        <%if compter % 2 == 0%>
+        <!-- timeline grid item start -->
+        <div class="timeline-item">
+          <div class="white-bg hc-shadow p-20 text-center hc-element-invisible" data-animation-effect="fadeInUpSmall" data-effect-delay="100">
+            <% if session.roles.find_by(user_id: @user.id).game_master != 'f' %>
+            <div class="margin-clear clearfix greenblock">Game Master</div>
+            <% else %>
+            <%if session.characters.where(user_id: @user.id)%>
+            <% session.characters.each do |character| %>
+            <div class="align-items-center margin-clear clearfix redblock"><%= character.pseudo %><br>Niveau <%= character.level %></div>
+              <%end%>
+            <%end%>
+            <%end%>
           <h3 class="mt-4 ses-title"><%= session.title%></h3>
           <div class="separator"></div>
           <p><%= session.description%></p>
@@ -49,12 +50,13 @@
         <div class="white-bg hc-shadow p-20 text-center hc-element-invisible" data-animation-effect="fadeInUpSmall" data-effect-delay="100">
           <% if session.roles.find_by(user_id: @user.id).game_master != 'f' %>
           <div class="margin-clear clearfix greenblock">Game Master</div>
-          <% end %>
+          <% else %>
           <%if session.characters.where(user_id: @user.id)%>
           <% session.characters.each do |character| %>
           <div class="margin-clear clearfix redblock"><%= character.pseudo %> <br>Niveau <%= character.level %></div>
+            <% end %>
           <% end %>
-          <% end %>
+          <%end%>
           <h3 class="mt-4 ses-title"><%= session.title%></h3>
           <div class="separator"></div>
           <p><%= session.description%></p>
@@ -148,6 +150,8 @@
       </a>
     </div>
     <%= link_to "Nouveau personnage", new_character_path, class: "btn btn-group btn-default btn-animated" %>
+    <%= link_to "Editer personnage", new_character_path, class: "btn btn-group btn-default btn-animated" %>
+    <%= link_to "Supprimer personnage", new_character_path, class: "btn btn-group btn-default btn-animated" %>
   </section>
   <div class="comments row pb-5">
     <div class="card card-comments col-md-3 mt-5">
