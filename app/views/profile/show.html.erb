@@ -1,13 +1,17 @@
 <div class="profile">
   <section class="">
-    <%= link_to "Supprimer profil", edit_user_registration_path, class: "btn btn-group btn-default btn-animated float-right d-flex order-1"%> </br>
+    <% if user_signed_in? %>
+      <%= link_to "Supprimer profil", edit_user_registration_path, class: "btn btn-group btn-default btn-animated float-right d-flex order-1"%> </br>
+    <% end %>
     <div class="row justify-content-center">
       <h1 class="title large mt-5"><span class="text-default">Profil de </span><%=@user.pseudo%></h1>
     </div>
-    <% if current_user.id === @user.id %>
-    <div class="separator"></div>
+    <% if user_signed_in? %>
+      <% if current_user.id === @user.id %>
+      <div class="separator"></div>
+      <% end %>
+      <%= link_to "Editer", edit_user_registration_path, class: "btn btn-group btn-default btn-animated float-right"%>
     <% end %>
-    <%= link_to "Editer", edit_user_registration_path, class: "btn btn-group btn-default btn-animated float-right"%>
     <%if @user.description%>
     <p class="large ml-5 desc"><%= @user.description%></p>
     <%else%>
