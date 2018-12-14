@@ -161,16 +161,14 @@
           <% end %>
         </span>
       </div>
-      <div class="comments col-md-12">
-        <div class="col-md-3 mt-5">
-        </div>
-        <%@comments.each do |com|%>
-        <div class="card card-comments col-md-3 mt-5">
-          <div class="card-body">
-            <h3 class="com-sender col-md-12">De <%=com.sender.pseudo%></h3>
-            <span class="com-content row col-md-12"><%=com.content%></span>
-          </div>
-        </div>
-        <%end%>
-      </div>
     </div>
+    <%@comments.each do |com|%>
+      <div class="card card-comments col-md-3 mt-5">
+        <div class="card-body">
+          <h3 class="com-sender col-md-12">De <%=com.sender.pseudo%></h3>
+          <span class="com-content row col-md-12"><%=com.content%></span>
+        </div>
+      </div>
+    <%end%>
+  </div>
+</div>
