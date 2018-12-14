@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'adventure', to: 'adventure#create_and_research'
   get 'adventure/show/:id', to: 'adventure#show'
   post 'adventure', to: 'adventure#create'
-  get 'game_sessions/index'
+  get 'game_sessions', to: 'game_session#index'
   get 'profile/show/:id', to: 'profile#show'
   get 'roleplay/index'
   devise_for :users
