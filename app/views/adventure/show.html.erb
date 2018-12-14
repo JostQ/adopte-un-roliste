@@ -8,11 +8,14 @@
       <div class="bot-side mt-3 col-md-12">
         <% if @game.date %>
           <span class="date col-md-12 ml-5 pl-5"><%= @game.date.strftime('La prochaine rencontre se déroulera à %H:%M le %d:%b:%Y')%></span>
+          <% if current_user == @game.creator %>
           <%= form_for @session, url: "/adventure/#{@game.id}", method: :put do |f| %>
             <div class="form-group">
               <%= f.datetime_select :date, :order => [:day, :month, :year], class: 'form-control' %>
             </div>
-            <%= f.submit 'Ajouteriuvfreqchrezhyichreziuh'%>
+            <%= f.submit 'Ajouter un rendez-vous'%>
+            <%= link_to "Fin du rendez-vous", root_path %>
+          <% end %>
           <% end %>
         <% end %>
       </div>
