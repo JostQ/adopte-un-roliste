@@ -10,9 +10,9 @@
     </div>
     <div class="right-side col-md-4">
       <div class="select-charac col-md-12">
-        <select class="form-control col-md-6">
-          <%@character.each do |char|%>
-            <option><%=char.pseudo%></option>
+        <select class="form-control col-md-12 mt-1">
+          <%@characters.each do |char|%>
+            <option class=""><%=char.pseudo%></option>
           <%end%>
         </select>
       </div>
