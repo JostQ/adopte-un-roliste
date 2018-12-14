@@ -32,9 +32,7 @@
             <div class="margin-clear clearfix greenblock">Game Master</div>
             <% else %>
             <%if session.characters.where(user_id: @user.id)%>
-            <% session.characters.each do |character| %>
-            <div class="align-items-center margin-clear clearfix redblock"><%= character.pseudo %><br>Niveau <%= character.level %></div>
-              <%end%>
+            <div class="align-items-center margin-clear clearfix redblock"><%= session.characters.where(user_id: @user.id).pseudo %><br>Niveau <%= session.characters.where(user_id: @user.id).level %></div>
             <%end%>
             <%end%>
           <h3 class="mt-4 ses-title"><%= session.title%></h3>
@@ -52,15 +50,13 @@
           <div class="margin-clear clearfix greenblock">Game Master</div>
           <% else %>
           <%if session.characters.where(user_id: @user.id)%>
-          <% session.characters.each do |character| %>
-          <div class="margin-clear clearfix redblock"><%= character.pseudo %> <br>Niveau <%= character.level %></div>
-            <% end %>
+          <div class="margin-clear clearfix redblock"><%= session.characters.find_by(user_id: @user.id).pseudo %><br>Niveau <%= session.characters.find_by(user_id: @user.id).level %></div>
           <% end %>
           <%end%>
           <h3 class="mt-4 ses-title"><%= session.title%></h3>
           <div class="separator"></div>
           <p><%= session.description%></p>
-          <a href="/adventure/show/<%=session.id%>">Entrer</a>
+          <a href="/adventure/<%=session.id%>">Entrer</a>
         </div>
       </div>
       <!-- timeline grid item end -->

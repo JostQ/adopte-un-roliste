@@ -24,23 +24,23 @@ game2 = GameSession.create(title: 'Les Yvelines', description:  'Forets maudites
 
 game3 = GameSession.create(title: 'Croisière draconique', description: 'Essayer de ne pas tomber à l eau', creator_id: 3, roleplay_id: 3, date: "16:30:00 17/12/2018", city: "Merignac", players_limit: 3)
 
-role1 = Role.create(game_master:  true, user_id:  1, game_session_id:  1)
+role1 = Role.create(game_master:  "true", user_id:  1, game_session_id:  1)
 
-role2 = Role.create(game_master:  true, user_id:  2, game_session_id:  2)
+role2 = Role.create(game_master:  "true", user_id:  2, game_session_id:  2)
 
-role3 = Role.create(game_master:  false, user_id:  1, game_session_id:  2)
+role3 = Role.create(game_master:  "f", user_id:  1, game_session_id:  2)
 
-role4 = Role.create(game_master:  false, user_id:  2, game_session_id:  1)
+role4 = Role.create(game_master:  "f", user_id:  2, game_session_id:  1)
 
-role5 = Role.create(game_master:  true, user_id:  3, game_session_id:  3)
+role5 = Role.create(game_master:  "true", user_id:  3, game_session_id:  3)
 
-role6 = Role.create(game_master:  false, user_id:  3, game_session_id:  1)
+role6 = Role.create(game_master:  "f", user_id:  3, game_session_id:  1)
 
 char1 = Character.create(pseudo:  "Meumeu", level:  7, user_id:  1, roleplay_id:  2, game_session_id:  2, description:  "Vache-Garou" )
 
 char2 = Character.create(pseudo:  "Coincoin", level:  7, user_id:  2, roleplay_id:  1, game_session_id:  1, description:  "Canard-Garou" )
 
-char2 = Character.create(pseudo:  "Piou piou", level:  99, user_id:  3, roleplay_id:  1, game_session_id:  1, description:  "Un poussin de 30m vous trouvez ca habituel?" )
+char3 = Character.create(pseudo:  "Pirou piou", level:  99, user_id:  3, roleplay_id:  1, game_session_id:  1, description:  "Un poussin de 30m vous trouvez ca habituel?" )
 
 prim1 = PrimarySpec.create(name:  "Vie", value: 50, character_id:  1)
 
