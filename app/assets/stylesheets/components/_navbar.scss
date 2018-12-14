@@ -1,3 +1,7 @@
+.navbar-bg-color {
+  background-color: rgba(125, 112, 98, 0.9);
+}
+
 .header-top {
   display: flex;
   flex-direction: row;
@@ -47,7 +51,7 @@
 
 .header {
   width: 100%;
-  background-color: rgba(125, 112, 98, 0.9) !important;
+  background-color: rgba(125, 112, 98, 0.6) !important;
   border-top-color: rgb(125, 112, 98) !important;
 	transition: 1000ms ease !important;
 }
