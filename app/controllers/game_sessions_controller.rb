@@ -34,6 +34,5 @@ class GameSessionsController < ApplicationController
     else
       redirect_to '/adventure', flash: {error: "GameSession Error"}
     end
-
   end
 end
