@@ -22,7 +22,7 @@
 </br>
 
 ## Ce que le repo ne contient pas:
-* Comnme prévu par Felix la features tchat a été abandonnée.
+* Comme prévu par Felix la features tchat a été abandonnée.
 
 ## Lancemant de l'app:
 
