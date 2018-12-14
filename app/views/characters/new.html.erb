@@ -17,14 +17,14 @@
                 </div>
 
                 <div class="form-group has-feedback row">
-                  <label for="user_pseudo" class="col-md-3 control-label text-md-right col-form-label">Niveau</label><span class="text-danger small">*</span><br />
+                  <label for="user_level" class="col-md-3 control-label text-md-right col-form-label">Niveau</label><span class="text-danger small">*</span><br />
                   <div class="col-md-8">
                     <%= f.text_field :level, class:"form-control", id: "inputUserLevel", placeholder: "Niveau du personnage", autofocus: true, autocomplete: "level" %>
                   </div>
                 </div>
 
                 <div class="form-group has-feedback row">
-                  <label for="user_pseudo" class="col-md-3 control-label text-md-right col-form-label">Jeux de Rôle</label><span class="text-danger small">*</span><br />
+                  <label for="user_roleplay" class="col-md-3 control-label text-md-right col-form-label">Jeux de Rôle</label><span class="text-danger small">*</span><br />
                   <div class="col-md-8">
                     <select name="character[roleplay]">
                       <% @roleplays.each do |roleplay| %>
