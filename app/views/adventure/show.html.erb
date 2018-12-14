@@ -1,16 +1,18 @@
-<div class="adventure row pt-5 justify-content-center">
+<div class="session row pt-5 justify-content-center">
   <div class="game-view row">
     <div class="left-side col-md-8">
       <div class="top-side col-md-12">
         MAP
       </div>
       <div class="bot-side mt-3 col-md-12">
-        <span class="date col-md-12 ml-5 pl-5"><%=(@game.date).strftime('La prochaine rencontre se déroulera à %H:%M le %d:%b:%Y')%></span>
+        <% if @game.date %>
+          <span class="date col-md-12 ml-5 pl-5"><%= @game.date.strftime('La prochaine rencontre se déroulera à %H:%M le %d:%b:%Y')%></span>
+        <% end %>
       </div>
     </div>
     <div class="right-side col-md-4">
       <div class="select-charac col-md-12">
-        <select class="form-control col-md-12 mt-1">
+        <select class="col-md-12 mt-1">
           <%@characters.each do |char|%>
             <option><%=char.pseudo%></option>
           <%end%>
