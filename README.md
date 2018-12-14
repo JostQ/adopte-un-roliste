@@ -10,7 +10,7 @@
 * Rails : v-5.2.1
 
 ## Ce repo contient:
-*Une version en prod : <strong>https://adopte-un-roliste.herokuapp.com/</strong>
+* Une version en prod : <strong>https://adopte-un-roliste.herokuapp.com/</strong>
 * Une version local
 * Une feature creation/recherche de session et la session qui va avec 
 * Un profil qui vous permet de retrouver vos sessions, vos personnage et les commentaires que l'ont vous laisse
