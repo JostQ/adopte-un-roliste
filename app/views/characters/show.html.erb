@@ -15,9 +15,12 @@
     <li><%= secondary_spec.name %> : <%= secondary_spec.value %></li>
   <% end %>
 </ul>
-<ul id="items-inventory">
+<ul id="items_inventory">
   <% compteur = 0 %>
   <% @character.inventories.each do |inventory| %>
     <li><%= inventory.name %></li>
   <% end %>
 </ul>
+<div id="link_profile">
+  <%= link_to "Profil de #{@character.user.pseudo}", "/profile/#{@character.user.id}" %>
+</div>

@@ -90,6 +90,7 @@
 }
 
 .top-side{
+  padding: 0 !important;
   background-color: rgba(255, 255, 255, 0.7)!important;
   height: 67%;
 }
@@ -116,32 +117,39 @@
   height: 8%;
 }
 
-.info-charach{
+#info-charach{
   background-color: rgba(255, 255, 255, 0.7)!important;
   margin-top: 3%;
   height: 18%;
 }
 
-.prim-specs{
+#prim-specs{
   background-color: rgba(255, 255, 255, 0.7)!important;
   margin-top: 3%;
   height: 18%;
 }
 
-.sec-specs{
+#sec-specs{
   background-color: rgba(255, 255, 255, 0.7)!important;
   margin-top: 3%;
   height: 18%;
 }
 
-.inv-charac{
+#inv-charac{
   background-color: rgba(255, 255, 255, 0.7)!important;
   margin-top: 3%;
   height: 18%;
 }
 
-.link-profile{
+#link-profile{
   background-color: rgba(255, 255, 255, 0.7)!important;
   margin-top: 3%;
   height: 6%;
+}
+
+.map{
+  width: 100% !important;
+  height: 100%;
+  margin-left: 0;
+  margin-left: 0;
 }

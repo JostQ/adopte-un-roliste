@@ -2,7 +2,8 @@
   <div class="game-view row">
     <div class="left-side col-md-8">
       <div class="top-side col-md-12">
-        MAP
+        <% Dotenv.load %>
+        <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=10&size=800x400&markers=size:small%7Ccolor:red%7C#{@game.city}&key=#{ENV["google_api"]}", alt: "Map", class: "map" %>
       </div>
       <div class="bot-side mt-3 col-md-12">
         <% if @game.date %>
@@ -15,24 +16,19 @@
         <select class="col-md-12 mt-2" id="characters_select">
           <option value="gm"><%= @gm.pseudo %> (Maitre du Jeu)</option>
           <% @characters.each do |char|%>
-            <option value="<%= char %>"><%=char.pseudo%></option>
+            <option value="<%= char.id %>"><%=char.pseudo%></option>
           <%end%>
         </select>
       </div>
-      <div class="info-charach col-md-12">
-        info charac selectionné
+      <div id="info-charach" class="col-md-12">
       </div>
-      <div class="prim-specs col-md-12">
-        prim-specs du charac
+      <div id="prim-specs" class="col-md-12">
       </div>
-      <div class="sec-specs col-md-12">
-        sec-specs du charac
+      <div id="sec-specs" class="col-md-12">
       </div>
-      <div class="inv-charac col-md-12">
-        inv-charac
+      <div id="inv-charac" class="col-md-12">
       </div>
-      <div class="link-profile col-md-12">
-        link
+      <div id="link-profile" class="col-md-12">
       </div>
     </div>
   </div>

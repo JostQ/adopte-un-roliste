@@ -70,4 +70,24 @@ $(document).on('turbolinks:load', function() {
     }
   })
 
+  $('#characters_select').on('change', function(){
+    console.log("test 1")
+    if($(this).val() !== "gm"){
+      console.log('/characters/' + $(this).val())
+      console.log($(this).val())
+      $('#info-charach').load('/characters/' + $(this).val() + ' #info_character')
+      $('#prim-specs').load('/characters/' + $(this).val() + ' #primary_specs')
+      $('#sec-specs').load('/characters/' + $(this).val() + ' #secondary_specs')
+      $('#inv-charac').load('/characters/' + $(this).val() + ' #items_inventory')
+      $('#link-profile').load('/characters/' + $(this).val() + ' #link_profile')
+    }
+    else{
+      $('#info-charach>ul').remove()
+      $('#prim-specs>ul').remove()
+      $('#sec-specs>ul').remove()
+      $('#inv-charac>ul').remove()
+      $('#link-profile>div').remove()
+    }
+  })
+
 })
