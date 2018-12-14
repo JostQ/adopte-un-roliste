@@ -7,6 +7,14 @@ class CharactersController < ApplicationController
     @roleplays = Roleplay.all
   end
 
+  def show
+    if params[:id]
+      if Character.find(params[:id])
+        @character = Character.find(params[:id])
+      end
+    end
+  end
+
   def create
 
     error = Hash.new

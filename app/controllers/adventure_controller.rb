@@ -9,5 +9,6 @@ class AdventureController < ApplicationController
   def show
     @game = GameSession.find(params[:id])
     @characters = @game.characters
+    @gm = Role.find_by(game_session: @game, game_master: "true").user
   end
 end

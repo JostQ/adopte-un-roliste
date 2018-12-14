@@ -1,0 +1,23 @@
+<ul id="info_character">
+  <li><%= @character.pseudo %></li>
+  <li><%= @character.level %></li>
+  <li><%= @character.description %></li>
+</ul>
+<ul id="primary_specs">
+  <% compteur = 0 %>
+  <% @character.primary_specs.each do |primary_spec| %>
+    <li><%= primary_spec.name %> : <%= primary_spec.value %></li>
+  <% end %>
+</ul>
+<ul id="secondary_specs">
+  <% compteur = 0 %>
+  <% @character.secondary_specs.each do |secondary_spec| %>
+    <li><%= secondary_spec.name %> : <%= secondary_spec.value %></li>
+  <% end %>
+</ul>
+<ul id="items-inventory">
+  <% compteur = 0 %>
+  <% @character.inventories.each do |inventory| %>
+    <li><%= inventory.name %></li>
+  <% end %>
+</ul>
