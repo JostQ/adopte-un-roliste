@@ -1,16 +1,16 @@
 <div class="profile">
   <section class="">
     <% if user_signed_in? %>
-      <%= link_to "Supprimer profil", edit_user_registration_path, class: "btn btn-group btn-default btn-animated float-right d-flex order-1"%> </br>
+    <%= link_to "Supprimer profil", edit_user_registration_path, class: "btn btn-group btn-default btn-animated float-right d-flex order-1"%> </br>
     <% end %>
     <div class="row justify-content-center">
       <h1 class="title large mt-5"><span class="text-default">Profil de </span><%=@user.pseudo%></h1>
     </div>
     <% if user_signed_in? %>
-      <% if current_user.id === @user.id %>
-      <div class="separator"></div>
-      <% end %>
-      <%= link_to "Editer", edit_user_registration_path, class: "btn btn-group btn-default btn-animated float-right"%>
+    <% if current_user.id === @user.id %>
+    <div class="separator"></div>
+    <% end %>
+    <%= link_to "Editer", edit_user_registration_path, class: "btn btn-group btn-default btn-animated float-right"%>
     <% end %>
     <%if @user.description%>
     <p class="large ml-5 desc"><%= @user.description%></p>
@@ -39,7 +39,7 @@
           <h3 class="mt-4 ses-title"><%= session.title%></h3>
           <div class="separator"></div>
           <p><%= session.description%></p>
-          <a href="/adventure/show/<%=session.id%>">Entrer</a>
+          <a href="/adventure/<%=session.id%>">Entrer</a>
         </div>
       </div>
       <!-- timeline grid item end -->
@@ -74,68 +74,68 @@
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <% @user.characters.each do |character| %>
-            <%if charac_count == 0%>
-              <div class="carousel-item active pl-5 pt-5">
-                <h2><%=character.pseudo%> - niveau <%=character.level%></h2>
-                <% if character.game_session %>
-                  <p class="session-card row justify-content-center">Session de jeu en cours : <%=character.game_session.title%></p>
-                <% else %>
-                  <p class="session-card"></p>
-                <% end %>
-                <div class="row">
-                  <div class="primary-specs">
-                    <h5 class="Bold">Caractéristique principale :</h5>
-                    <%character.primary_specs.each do |prim|%>
-                    <span class="pl-5"><%=prim.name%> : <%=prim.value%></span> <br>
-                    <%end%>
-                  </div>
-                  <div class="secondary-specs">
-                    <h5 class="Bold">Caractéristique secondaire :</h5>
-                    <%character.secondary_specs.each do |sec|%>
-                    <span class="pl-5"><%=sec.name%> : <%=sec.value%></span> <br>
-                    <%end%>
-                  </div>
-                  <div class="inventory">
-                    <h5 class="Bold">Inventaire :</h5>
-                    <%character.inventories.each do |inv|%>
-                    <span class="pl-5"><%=inv.name%></span> <br>
-                    <%end%>
-                  </div>
-                </div>
-                <img class="d-block w-100" alt="<%charac_count%>">
-              </div>
-            <% else %>
-              <div class="carousel-item pl-5 pt-5">
-                <h2><%=character.pseudo%> - niveau <%=character.level%></h2>
-                <% if character.game_session %>
-                  <p class="session-card row justify-content-center">Session de jeu en cours : <%=character.game_session.title%></p>
-                <% else %>
-                  <p class="session-card"></p>
-                <% end %>
-                <div class="row">
-                  <div class="primary-specs">
-                    <h5 class="Bold">Caractéristique principale :</h5>
-                    <%character.primary_specs.each do |prim|%>
-                    <span class="pl-5"><%=prim.name%> : <%=prim.value%></span> <br>
-                    <%end%>
-                  </div>
-                  <div class="secondary-specs">
-                    <h5 class="Bold">Caractéristique secondaire :</h5>
-                    <%character.secondary_specs.each do |sec|%>
-                    <span class="pl-5"><%=sec.name%> : <%=sec.value%></span> <br>
-                    <%end%>
-                  </div>
-                  <div class="inventory">
-                    <h5 class="Bold">Inventaire :</h5>
-                    <%character.inventories.each do |inv|%>
-                    <span class="pl-5"><%=inv.name%></span> <br>
-                    <%end%>
-                  </div>
-                </div>
-                <img class="d-block w-100" alt="<%charac_count%>">
-              </div>
-          <%end%>
-          <%charac_count += 1%>
+        <%if charac_count == 0%>
+        <div class="carousel-item active pl-5 pt-5">
+          <h2><%=character.pseudo%> - niveau <%=character.level%></h2>
+          <% if character.game_session %>
+          <p class="session-card row justify-content-center">Session de jeu en cours : <%=character.game_session.title%></p>
+          <% else %>
+          <p class="session-card"></p>
+          <% end %>
+          <div class="row">
+            <div class="primary-specs">
+              <h5 class="Bold">Caractéristique principale :</h5>
+              <%character.primary_specs.each do |prim|%>
+              <span class="pl-5"><%=prim.name%> : <%=prim.value%></span> <br>
+              <%end%>
+            </div>
+            <div class="secondary-specs">
+              <h5 class="Bold">Caractéristique secondaire :</h5>
+              <%character.secondary_specs.each do |sec|%>
+              <span class="pl-5"><%=sec.name%> : <%=sec.value%></span> <br>
+              <%end%>
+            </div>
+            <div class="inventory">
+              <h5 class="Bold">Inventaire :</h5>
+              <%character.inventories.each do |inv|%>
+              <span class="pl-5"><%=inv.name%></span> <br>
+              <%end%>
+            </div>
+          </div>
+          <img class="d-block w-100" alt="<%charac_count%>">
+        </div>
+        <% else %>
+        <div class="carousel-item pl-5 pt-5">
+          <h2><%=character.pseudo%> - niveau <%=character.level%></h2>
+          <% if character.game_session %>
+          <p class="session-card row justify-content-center">Session de jeu en cours : <%=character.game_session.title%></p>
+          <% else %>
+          <p class="session-card"></p>
+          <% end %>
+          <div class="row">
+            <div class="primary-specs">
+              <h5 class="Bold">Caractéristique principale :</h5>
+              <%character.primary_specs.each do |prim|%>
+              <span class="pl-5"><%=prim.name%> : <%=prim.value%></span> <br>
+              <%end%>
+            </div>
+            <div class="secondary-specs">
+              <h5 class="Bold">Caractéristique secondaire :</h5>
+              <%character.secondary_specs.each do |sec|%>
+              <span class="pl-5"><%=sec.name%> : <%=sec.value%></span> <br>
+              <%end%>
+            </div>
+            <div class="inventory">
+              <h5 class="Bold">Inventaire :</h5>
+              <%character.inventories.each do |inv|%>
+              <span class="pl-5"><%=inv.name%></span> <br>
+              <%end%>
+            </div>
+          </div>
+          <img class="d-block w-100" alt="<%charac_count%>">
+        </div>
+        <%end%>
+        <%charac_count += 1%>
         <%end%>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -148,6 +148,7 @@
       </a>
     </div>
   </section>
+  <%= link_to "Nouveau personnage", new_character_path, class: "btn btn-group btn-default btn-animated" %>
   <div class="comments col-md-12">
     <div class="col-md-3 mt-5">
 

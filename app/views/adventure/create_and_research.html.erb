@@ -15,29 +15,35 @@
           <%= f.text_area :description, class: "form-control", id:"input_game_description", placeholder: "Donne une description à ta session", autocomplete: "description" %>
         </div>
       </div>
+      <div class="form-group has-feedback row justify-content-center">
+        <label for="game_session_city" class="control-label text-md-right form-label"></label><br/>
+        <div class="col-md-6 pl-0 pr-0">
+          <%= f.text_field :city, class: "form-control", id:"input_game_city", placeholder: "Choisi une ville pour ta partie", autocomplete: "city" %>
+        </div>
+      </div>
       <div class="form-group row justify-content-center">
-        <select class="form-control col-md-6">
+        <select class="form-control col-md-6" name="game_session[roleplay]">
           <%roleNumber = 1%>
           <%@roleplay.each do |role|%>
           <%if roleNumber == 1%>
-            <option selected="selected"><%=role.name%></option>
+            <option value="<%= role.id %>" selected="selected"><%=role.name%></option>
             <%roleNumber += 1%>
           <%else%>
-            <option><%=role.name%></option>
+            <option value="<%= role.id %>"><%=role.name%></option>
             <%roleNumber += 1%>
           <%end%>
           <%end%>
         </select>
       </div>
       <div class="form-group row justify-content-center">
-        <select class="form-control col-md-6">
+        <select class="form-control col-md-6" name="game_session[playerslimit]">
           <%joueur = 1%>
           <%while joueur <= 10%>
             <%if joueur == 1%>
-              <option>Pour <%=joueur%> aventurier</option>
+              <option value="<%= joueur %>">Pour <%=joueur%> aventurier</option>
               <%joueur += 1%>
             <%else%>
-              <option>Pour <%=joueur%> aventuriers</option>
+              <option value="<%= joueur %>">Pour <%=joueur%> aventuriers</option>
               <%joueur += 1%>
             <%end%>
           <%end%>
@@ -61,8 +67,8 @@
         <input type="text" id="search_game" class="form-control" placeholder="Dans quelle ville souhaites-tu faire ta session ?">
       </div>
     </div>
-    <div class="search_result">
-      
+    <div id="search_result">
+
     </div>
   </div>
 </div>

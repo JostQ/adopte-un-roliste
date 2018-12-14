@@ -66,7 +66,7 @@ $(document).on('turbolinks:load', function() {
 
   $('#search_game').on('keyup', function(){
     if($('#search_game').val().length > 2 ){
-      $(this).load('/game_sessions?search=' + $(this).val() + ' #list_game_session')
+      $("#search_result").load('/game_sessions?search=' + $("#search_game").val() + ' #list_game_session')
     }
   })
 
