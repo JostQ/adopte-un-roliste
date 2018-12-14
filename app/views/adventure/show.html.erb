@@ -19,6 +19,21 @@
             <option value="<%= char.id %>"><%=char.pseudo%></option>
           <%end%>
         </select>
+        <div class="row col-md-12 align-items-center">
+          <% if user_signed_in? %>
+            <%= form_for @new_charac, url: '/adventure/character' do |f| %>
+              <input type="hidden" name="game_session" value="<%= @game.id %>">
+              <select class="char-selecter mr-3" name="character">
+                  <%if @user.characters.find_by(game_session_id: nil,roleplay_id: GameSession.find(params[:id]).roleplay_id)%>
+                    <%@user.characters.where(game_session_id: nil,roleplay_id: GameSession.find(params[:id]).roleplay_id).each do |char|%>
+                      <option value="<%= char.id %>"><%=char.pseudo%> - <%= char.level%></option>
+                    <%end%>
+                  <%end%>
+              </select>
+              <button class="btn btn-group btn-default btn-animated pb-1">Rejoindre</button>
+            <% end %>
+          <% end %>
+        </div>
       </div>
       <div id="info-charach" class="col-md-12">
       </div>
