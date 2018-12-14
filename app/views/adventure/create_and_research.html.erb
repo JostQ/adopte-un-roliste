@@ -64,7 +64,12 @@
     <div class="searchbar">
       <div class="form-group">
         <label></label>
-        <input type="text" id="search_game" class="form-control" placeholder="Dans quelle ville souhaites-tu faire ta session ?">
+        <select class="form-control" id="search_game">
+          <option value="false" selected>Dans quelle ville souhaites-tu faire ta session ?</option>
+          <% @game_sessions_cities.uniq.each do |city| %>
+            <option value="<%= city %>"><%= city %></option>
+          <% end %>
+        </select>
       </div>
     </div>
     <div id="search_result">
