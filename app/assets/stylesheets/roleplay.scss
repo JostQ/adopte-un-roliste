@@ -4,9 +4,12 @@
 
 .jdr-background {
   background-image: url('https://images5.alphacoders.com/548/548279.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
   background-size: cover;
-  height:100vh;
-  z-index: 0;
+  height: auto;
+  padding-bottom: 10%;
 }
 
 .main-container {
@@ -17,7 +20,7 @@
 
 .card {
   background-image: linear-gradient(rgb(125, 112, 98), rgba(125, 112, 98, 0.9)) !important;
-  height: 25%;
+  height: 250px;
   margin-left: 50px;
   display: flex!important;
   flex-direction: row!important;
