@@ -65,7 +65,7 @@
   <!-- section end -->
   <section class="">
     <%charac_count = 0%>
-    <div id="c  arouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <% @user.game_sessions.each do |session| %>
           <% session.characters.each do |character| %>
@@ -122,4 +122,9 @@
       </a>
     </div>
   </section>
+  <div class="comments">
+    <div class="card">
+
+    </div>
+  </div>
 </div>
