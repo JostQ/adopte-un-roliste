@@ -31,38 +31,43 @@ class CharactersController < ApplicationController
     if character.save
       error[:character] = "Character Error"
     end
-
-    params[:primnames].each do |index, value|
-      prim = PrimarySpec.new
-      prim.name = value
-      prim.value = params[:primvals][index].to_i
-      prim.character = character
-      if prim.save
-        error[:prim] = "Prim Error"
+    if params[:primnames]
+      params[:primnames].each do |index, value|
+        prim = PrimarySpec.new
+        prim.name = value
+        prim.value = params[:primvals][index].to_i
+        prim.character = character
+        if prim.save
+          error[:prim] = "Prim Error"
+        end
       end
     end
 
-    params[:secnames].each do |index, value|
-      sec = SecondarySpec.new
-      sec.name = value
-      sec.value = params[:secvals][index].to_i
-      sec.character = character
-      if sec.save
-        error[:sec] = "Sec Error"
+    if params[:secnames]
+      params[:secnames].each do |index, value|
+        sec = SecondarySpec.new
+        sec.name = value
+        sec.value = params[:secvals][index].to_i
+        sec.character = character
+        if sec.save
+          error[:sec] = "Sec Error"
+        end
       end
     end
 
-    params[:items].each do |index, value|
-      inventory = Inventory.new
-      inventory.name = value
-      inventory.character = character
-      if inventory.save
-        error[:item] = "Item Error"
+    if params[:items]
+      params[:items].each do |index, value|
+        inventory = Inventory.new
+        inventory.name = value
+        inventory.character = character
+        if inventory.save
+          error[:item] = "Item Error"
+        end
       end
     end
 
     if error = {}
-      redirect_to root_path
+      redirect_to "/profile/#{current_user.id}", flash: { validate: "Personnage créé !"}
     else
       p error
     end
