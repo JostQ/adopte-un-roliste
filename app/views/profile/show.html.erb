@@ -38,6 +38,15 @@
           <h3 class="mt-4 ses-title"><%= session.title%></h3>
           <div class="separator"></div>
           <p><%= session.description%></p>
+          <%if session.roles.find_by(user_id: @user.id).game_master == 'f' %>
+          <select class="form-control char-selecter col-md-6" name="character[pseudo]">
+            <%if @user.characters.find_by(game_session_id: nil,roleplay_id: session.roleplay_id)%>
+            <%@user.characters.where(game_session_id: nil,roleplay_id: session.roleplay_id).each do |char|%>
+              <option><%=char.pseudo%> - <%= char.level%></option>
+            <%end%>
+            <%end%>
+          </select>
+          <%end%>
           <a href="/adventure/<%=session.id%>">Entrer</a>
         </div>
       </div>
@@ -56,6 +65,7 @@
           <h3 class="mt-4 ses-title"><%= session.title%></h3>
           <div class="separator"></div>
           <p><%= session.description%></p>
+            <%if session.roles.find_by(user_id: @user.id).game_master == 'f' %>
           <select class="form-control char-selecter col-md-6" name="character[pseudo]">
             <%if @user.characters.find_by(game_session_id: nil,roleplay_id: session.roleplay_id)%>
             <%@user.characters.where(game_session_id: nil,roleplay_id: session.roleplay_id).each do |char|%>
@@ -63,6 +73,7 @@
             <%end%>
             <%end%>
           </select>
+          <%end%>
           <a href="/adventure/<%=session.id%>">Entrer</a>
         </div>
       </div>
