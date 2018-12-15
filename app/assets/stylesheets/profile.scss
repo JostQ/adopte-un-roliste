@@ -64,8 +64,11 @@
 
 .profile {
   background-image: url("https://img.freepik.com/photos-libre/texture-de-papier-brun-pour-l-39-arriere-plan_1373-528.jpg?size=338&ext=jpg")!important;
+  background-position: top center;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100%; 
 }
-
 .card-comments{
   background-color: white;
   opacity: 0.6;
