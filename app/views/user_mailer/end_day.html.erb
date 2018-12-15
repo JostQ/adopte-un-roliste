@@ -1,9 +1,9 @@
-<% if @user.roles.find_by(game_session: GameSession.find_by(title: @game_session.title, end_game: false).id).game_master === "f" %>
+<% if @user.roles.find_by(game_session: @game_session).game_master === "f" %>
 
-  <a href="http://localhost:3000/opinions?game_session=<%= @game_session.title %>&MJ=false&sender=<%= @user.pseudo %>"> Cliquez ici pour donner votre opinion !</a>
+  <a href="https://adopte-un-roliste.herokuapp.com/opinions?game_session=<%= @game_session.title %>&MJ=false&sender=<%= @user.pseudo %>"> Cliquez ici pour donner votre opinion !</a>
 
 <% else %>
 
-  <a href="http://localhost:3000/opinions?game_session=<%= @game_session.title %>&MJ=true&sender=<%= @user.pseudo %>"> Cliquez ici pour donner votre opinion !</a>
+  <a href="https://adopte-un-roliste.herokuapp.com/opinions?game_session=<%= @game_session.title %>&MJ=true&sender=<%= @user.pseudo %>"> Cliquez ici pour donner votre opinion !</a>
 
 <% end %>

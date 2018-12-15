@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'adventure/:id', to: 'adventure#show'
   put 'adventure/:id', to: 'adventure#update'
   post 'adventure/character', to: 'adventure#create'
+  post 'adventure/end_day/:id', to: 'adventure#end_day'
   get 'game_sessions', to: 'game_sessions#index'
   get 'profile/:id', to: 'profile#show'
   get 'roleplay/index'

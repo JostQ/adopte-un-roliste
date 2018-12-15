@@ -7,42 +7,43 @@
       </div>
       <div class="bot-side mt-3 col-md-12">
         <% if @game.date %>
-          <span class="date col-md-12 ml-5 pl-5"><%= @game.date.strftime('La prochaine rencontre se déroulera à %H:%M le %d:%b:%Y')%></span>
-          <% if current_user == @game.creator %>
+          <span class="date col-md-12"><%= @game.date.strftime('La prochaine rencontre se déroulera à %H:%M le %d:%b:%Y')%></span>
+        <% end %>
+        <% if current_user == @game.creator %>
           <%= form_for @session, url: "/adventure/#{@game.id}", method: :put do |f| %>
-            <div class="form-group">
+            <div class="">
               <%= f.datetime_select :date, :order => [:day, :month, :year], class: 'form-control' %>
             </div>
             <%= f.submit 'Ajouter un rendez-vous'%>
-            <%= link_to "Fin du rendez-vous", root_path %>
           <% end %>
-          <% end %>
+          <%= link_to "Fin du rendez-vous", "/adventure/end_day/#{@game.id}", method: :post %>
         <% end %>
       </div>
     </div>
     <div class="right-side col-md-4 mt-3">
-      <div class="select-charac col-md-12">
-        <select class="col-md-12 mt-2" id="characters_select">
-          <option value="gm"><%= @gm.pseudo %> (Maitre du Jeu)</option>
-          <% @characters.each do |char|%>
-            <option value="<%= char.id %>"><%=char.pseudo%></option>
-          <%end%>
-        </select>
-        <div class="row col-md-12 align-items-center">
-          <% if user_signed_in? %>
-            <%= form_for @new_charac, url: '/adventure/character' do |f| %>
-              <input type="hidden" name="game_session" value="<%= @game.id %>">
-              <select class="char-selecter mr-3" name="character">
-                  <%if @user.characters.find_by(game_session_id: nil,roleplay_id: GameSession.find(params[:id]).roleplay_id)%>
-                    <%@user.characters.where(game_session_id: nil,roleplay_id: GameSession.find(params[:id]).roleplay_id).each do |char|%>
-                      <option value="<%= char.id %>"><%=char.pseudo%> - <%= char.level%></option>
-                    <%end%>
-                  <%end%>
+      <div class="col-md-12">
+        <div class="row select-charac align-items-center">
+            <div class="col-md-7">
+              <select class="col-md-12 mt-2 select-custom" id="characters_select">
+                <option value="gm"><%= @gm.pseudo %> (Maitre du Jeu)</option>
+                <% @characters.each do |char|%>
+                  <option value="<%= char.id %>"><%=char.pseudo%></option>
+                <%end%>
               </select>
-              <button class="btn btn-group btn-default btn-animated pb-1">Rejoindre</button>
-            <% end %>
-          <% end %>
-        </div>
+            </div>
+              <% if user_signed_in? %>
+                <% if User.find(current_user.id).roles.find_by(game_session: @game) %>
+                  <div class="alert mt-0 mb-0 alert-success">
+                    Joined
+                  </div>
+                <% else %>
+                  <%= form_for @new_charac, url: '/adventure/character', html: { class: "mt-0 mb-0" } do |f| %>
+                    <input type="hidden" name="game_session" value="<%= @game.id %>">
+                    <button class="btn btn-dark">Rejoindre</button>
+                  <% end %>
+                <% end %>
+              <% end %>
+          </div>
       </div>
       <div id="info-charach" class="col-md-12">
       </div>

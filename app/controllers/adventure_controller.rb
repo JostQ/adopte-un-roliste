@@ -10,10 +10,20 @@ class AdventureController < ApplicationController
   end
 
   def create
-    character = Character.find(params["character"])
-    character.game_session_id = params["game_session"]
-    character.save
-    redirect_to "/adventure/#{params["game_session"]}", flash: {validate: 'Votre personnage est enregistré'}
+    role = Role.new
+    role.user = current_user
+    role.game_session_id = params[:game_session]
+    role.save
+
+    redirect_to "/adventure/#{params[:game_session]}", flash: {validate: "Session rejointe !"}
+  end
+
+  def end_day
+    session = GameSession.find(params[:id])
+    session.roles.each do |player|
+      UserMailer.end_day(player.user, session).deliver_now!
+    end
+    redirect_to "/adventure/#{params[:id]}", flash: { validate: "Session du jour fini !"}
   end
 
   def show
