@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post 'adventure/end_day/:id', to: 'adventure#end_day'
   get 'game_sessions', to: 'game_sessions#index'
   get 'profile/:id', to: 'profile#show'
-  get 'roleplay/index'
+  get 'roleplay', to: 'roleplay#index'
   devise_for :users
   root 'home#index'
   get 'opinions', to: 'opinions#new'
