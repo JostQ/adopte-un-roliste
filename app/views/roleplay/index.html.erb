@@ -5,7 +5,7 @@
   <div class="main col-md-12 pt-5">
     <div class="card card-universe col-9 shadow border border-light">
       <div class="col-lg-5 RP">
-        <img src="<%=r.roleplay_image%>" alt="<%=r.name%> image" class="pic border" >
+        <img src="<%=r.roleplay_image.attach(params[:roleplay_image])%>" alt="<%=r.name%> image" class="pic border" >
       </div>
       <div class="col-lg-7 RPcontent">
         <h3 class="title"><%=r.name%></h3>
@@ -17,7 +17,7 @@
   <div class="main col-md-12 mt-5">
     <div class="card card-universe col-9 shadow border border-light">
       <div class="col-lg-5 RP">
-        <img src="<%=r.roleplay_image%>" alt="<%=r.name%> image" class="pic border" >
+        <img src="<%=r.roleplay_image.attach(params[:roleplay_image])%>" alt="<%=r.name%> image" class="pic border" >
       </div>
       <div class="col-lg-7 RPcontent">
         <h3 class="title"><%=r.name%></h3>
@@ -29,7 +29,7 @@
   <div class="main1 col-md-12 mt-5">
     <div class="card card-universe offset-3 col-9 shadow border border-light">
       <div class="col-lg-5 RP">
-        <img src="<%=r.roleplay_image%>" alt="<%=r.name%> image" class="pic border" >
+        <img src="<%=r.roleplay_image.attach(params[:roleplay_image])%>" alt="<%=r.name%> image" class="pic border" >
       </div>
       <div class="col-lg-7 RPcontent">
         <h3 class="title"><%=r.name%></h3>
