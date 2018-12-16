@@ -1,7 +1,7 @@
 .characterbackground {
-  background-image: url('https://i.imgur.com/RIhHH2f.jpg');
-  background-position: top center;
-  background-attachment: fixed;
+  background: url('https://i.imgur.com/RIhHH2f.jpg') no-repeat center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  height: 100%;
 }
