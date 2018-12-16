@@ -10,7 +10,7 @@ class ProfileController < ApplicationController
 
   def add_character_to_session
     character = Character.find(params[:character][:id])
-    character.game_session = params[:character][:game_session]
+    character.game_session_id = params[:character][:game_session]
     character.save
     redirect_to "/profile/#{params[:id]}", flash: { validate: "Personnage ajouté !" }
   end
