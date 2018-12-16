@@ -1,9 +1,9 @@
 <div class="profile">
   <section class="">
     <% if user_signed_in? %>
-    <% if current_user.id == @user.id  %>
-    <%= link_to "Supprimer profil", edit_user_registration_path, class: "btn btn-group btn-default btn-animated float-right d-flex order-1"%> </br>
-    <% end %>
+      <% if current_user.id == @user.id  %>
+        <%= link_to "Supprimer profil", edit_user_registration_path, class: "btn btn-group btn-default btn-animated float-right d-flex order-1"%> </br>
+      <% end %>
     <% end %>
     <div class="row justify-content-center">
       <h1 class="title large mt-5"><span class="text-default">Profil de </span><%=@user.pseudo%></h1>
@@ -12,14 +12,14 @@
     <div class="separator"></div>
 
     <% if user_signed_in? %>
-    <% if current_user.id == @user.id %>
-    <%= link_to "Editer", edit_user_registration_path, class: "btn btn-group btn-default btn-animated float-right"%>
-    <% end %>
+      <% if current_user.id == @user.id %>
+        <%= link_to "Editer", edit_user_registration_path, class: "btn btn-group btn-default btn-animated float-right"%>
+      <% end %>
     <% end %>
     <%if @user.description%>
-    <p class="large ml-5 desc"><%= @user.description%></p>
-    <%else%>
-    <p class="large ml-5">Editer pour modifier.</p>
+      <p class="large ml-5 desc"><%= @user.description%></p>
+        <%else%>
+      <p class="large ml-5">Editer pour modifier.</p>
     <%end%>
 
     <div class="separator"></div>
@@ -28,36 +28,36 @@
     <div class="timeline margin-clear clearfix">
       <%compter = 0%>
       <% @user.game_sessions.each do |session| %>
-      <%if compter % 2 == 0%>
-      <!-- timeline grid item start -->
-      <div class="timeline-item">
-        <div class="white-bg hc-shadow p-20 text-center hc-element-invisible" data-animation-effect="fadeInUpSmall" data-effect-delay="100">
-          <% if session.roles.find_by(user_id: @user.id).game_master != 'f' %>
-          <div class="margin-clear clearfix greenblock">Game Master</div>
-          <% else %>
-          <%if session.characters.where(user_id: @user.id)%>
-          <div class="align-items-center margin-clear clearfix redblock"><%= session.characters.find_by(user_id: @user.id).pseudo %><br>Niveau <%= session.characters.find_by(user_id: @user.id).level %></div>
-          <%end%>
-          <%end%>
-          <h3 class="mt-4 ses-title"><%= session.title%></h3>
-          <div class="separator"></div>
-          <p><%= session.description%></p>
-          <% if user_signed_in? %>
-          <% if current_user.id == @user.id  %>
-          <% if session.roles.find_by(user_id: @user.id).game_master == 'f'  && !@user.characters.find_by(game_session: session) %>
-          <select class="form-control char-selecter col-md-6" name="character[pseudo]">
-            <%if @user.characters.find_by(game_session_id: nil,roleplay_id: session.roleplay_id)%>
-            <%@user.characters.where(game_session_id: nil,roleplay_id: session.roleplay_id).each do |char|%>
-            <option><%=char.pseudo%> - <%= char.level%></option>
+        <%if compter % 2 == 0%>
+        <!-- timeline grid item start -->
+        <div class="timeline-item">
+          <div class="white-bg hc-shadow p-20 text-center hc-element-invisible" data-animation-effect="fadeInUpSmall" data-effect-delay="100">
+            <% if session.roles.find_by(user_id: @user.id).game_master != 'f' %>
+              <div class="margin-clear clearfix greenblock">Game Master</div>
+            <% else %>
+              <%if session.characters.find_by(user_id: @user.id)%>
+                <div class="align-items-center margin-clear clearfix redblock"><%= session.characters.find_by(user_id: @user.id).pseudo %><br>Niveau <%= session.characters.find_by(user_id: @user.id).level %></div>
+              <%end%>
             <%end%>
-            <%end%>
-          </select>
-          <% end %>
-          <% end %>
-          <% end %>
-          <a href="/adventure/<%=session.id%>">Entrer</a>
+            <h3 class="mt-4 ses-title"><%= session.title%></h3>
+            <div class="separator"></div>
+            <p><%= session.description%></p>
+            <% if user_signed_in? %>
+              <%if @user.characters.find_by(game_session_id: nil,roleplay_id: session.roleplay_id)%>
+                <%= form_for @character, "/character/add_character_to_session/#{@user.id}", html: { class: "col-md-6"} do |f| %>
+                  <%= f.hidden_field :game_session, value: session %>
+                  <select class="char-selecter" name="character[id]">
+                      <%@user.characters.where(game_session_id: nil,roleplay_id: session.roleplay_id).each do |char|%>
+                        <option value="<%= char.id %>"><%=char.pseudo%> - <%= char.level%></option>
+                      <%end%>
+                  </select>
+                  <%= f.submit 'Ajouter le personnage', "btn btn-dark" %>
+                <% end %>
+              <%end%>
+            <% end %>
+            <a href="/adventure/<%=session.id%>">Entrer</a>
+          </div>
         </div>
-      </div>
       <!-- timeline grid item end -->
       <% else %>
       <!-- timeline grid item start -->
@@ -66,7 +66,7 @@
           <% if session.roles.find_by(user_id: @user.id).game_master != 'f' %>
           <div class="margin-clear clearfix greenblock">Game Master</div>
           <% else %>
-          <%if session.characters.where(user_id: @user.id)%>
+          <%if session.characters.find_by(user_id: @user.id)%>
           <div class="margin-clear clearfix redblock"><%= session.characters.find_by(user_id: @user.id).pseudo %><br>Niveau <%= session.characters.find_by(user_id: @user.id).level %></div>
           <% end %>
           <%end%>
@@ -76,13 +76,18 @@
           <% if user_signed_in? %>
           <% if current_user.id == @user.id  %>
           <% if session.roles.find_by(user_id: @user.id).game_master == 'f'  && !@user.characters.find_by(game_session: session) %>
-          <select class="form-control char-selecter col-md-6" name="character[pseudo]">
             <%if @user.characters.find_by(game_session_id: nil,roleplay_id: session.roleplay_id)%>
-            <%@user.characters.where(game_session_id: nil,roleplay_id: session.roleplay_id).each do |char|%>
-            <option><%=char.pseudo%> - <%= char.level%></option>
+              <%= form_for @character, "/character/add_character_to_session/#{@user.id}", html: { class: "col-md-6"} do |f| %>
+                <%= f.hidden_field :game_session, value: session %>
+                <select class="char-selecter" name="character[id]">
+                    <%@user.characters.where(game_session_id: nil,roleplay_id: session.roleplay_id).each do |char|%>
+                      <option value="<%= char.id %>"><%=char.pseudo%> - <%= char.level%></option>
+                    <%end%>
+                </select>
+                <%= f.submit 'Ajouter le personnage', "btn btn-dark" %>
+              <% end %>
             <%end%>
-            <%end%>
-          </select>
+
           <% end %>
           <% end %>
           <% end %>

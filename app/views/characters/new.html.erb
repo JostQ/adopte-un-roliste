@@ -23,10 +23,24 @@
                   </div>
                 </div>
 
+                <% unless @game_sessions === [] %>
+                  <div class="form-group has-feedback row">
+                    <label for="user_pseudo" class="col-md-3 control-label text-md-right col-form-label">Session de jeux</label><span class="text-danger small">*</span><br />
+                    <div class="col-md-8">
+                      <select name="character[game_session]" class="select-custom">
+                        <option value="none">Sélectionner une session de jeu</option>
+                        <% @game_sessions.each do |game_session| %>
+                          <option value="<%= game_session.id %>"><%= game_session.title %></option>
+                        <% end %>
+                      </select>
+                    </div>
+                  </div>
+                <% end %>
+
                 <div class="form-group has-feedback row">
                   <label for="user_pseudo" class="col-md-3 control-label text-md-right col-form-label">Jeux de Rôle</label><span class="text-danger small">*</span><br />
                   <div class="col-md-8">
-                    <select name="character[roleplay]">
+                    <select name="character[roleplay]" class="select-custom">
                       <% @roleplays.each do |roleplay| %>
                         <option value="<%= roleplay.id %>"><%= roleplay.name %></option>
                       <% end %>
