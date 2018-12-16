@@ -74,8 +74,6 @@
           <div class="separator"></div>
           <p><%= session.description%></p>
           <% if user_signed_in? %>
-          <% if current_user.id == @user.id  %>
-          <% if session.roles.find_by(user_id: @user.id).game_master == 'f'  && !@user.characters.find_by(game_session: session) %>
             <%if @user.characters.find_by(game_session_id: nil,roleplay_id: session.roleplay_id)%>
               <%= form_for @character, "/character/add_character_to_session/#{@user.id}", html: { class: "col-md-6"} do |f| %>
                 <%= f.hidden_field :game_session, value: session %>
@@ -87,9 +85,6 @@
                 <%= f.submit 'Ajouter le personnage', "btn btn-dark" %>
               <% end %>
             <%end%>
-
-          <% end %>
-          <% end %>
           <% end %>
           <a href="/adventure/<%=session.id%>">Entrer</a>
         </div>
