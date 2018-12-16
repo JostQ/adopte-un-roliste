@@ -3,13 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .jdr-background {
-  background-image: url('https://images5.alphacoders.com/548/548279.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
+  background: url('https://images5.alphacoders.com/548/548279.jpg') no-repeat center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  height: 100%;
-  padding-bottom: 10%;
 }
 
 .main-container {
