@@ -27,14 +27,7 @@
 //= require template
 //= require custom
 
-Turbolinks.scroll = {}
-
-
 $(document).on('turbolinks:load', function() {
-
-	$(window).on('scroll', function(){
-		$('header').toggleClass('scrolled', $(this).scrollTop() > 0 )
-	});
 
 	let i = 0
 
