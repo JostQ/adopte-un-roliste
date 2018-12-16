@@ -44,7 +44,7 @@
             <p><%= session.description%></p>
             <% if user_signed_in? %>
               <%if @user.characters.find_by(game_session_id: nil,roleplay_id: session.roleplay_id)%>
-                <%= form_for @character, url: {"/character/add_character_to_session/#{@user.id}"}, html: { class: "col-md-6"} do |f| %>
+                <%= form_for @character, url: "/character/add_character_to_session/#{@user.id}", html: { class: "col-md-6"} do |f| %>
                   <%= f.hidden_field :game_session, value: session %>
                   <select class="char-selecter" name="character[id]">
                       <%@user.characters.where(game_session_id: nil,roleplay_id: session.roleplay_id).each do |char|%>
@@ -75,7 +75,7 @@
           <p><%= session.description%></p>
           <% if user_signed_in? %>
             <%if @user.characters.find_by(game_session_id: nil,roleplay_id: session.roleplay_id)%>
-              <%= form_for @character, url: {"/character/add_character_to_session/#{@user.id}"}, html: { class: "col-md-6"} do |f| %>
+              <%= form_for @character, url: "/character/add_character_to_session/#{@user.id}", html: { class: "col-md-6"} do |f| %>
                 <%= f.hidden_field :game_session, value: session %>
                 <select class="char-selecter" name="character[id]">
                     <%@user.characters.where(game_session_id: nil,roleplay_id: session.roleplay_id).each do |char|%>
