@@ -35,7 +35,7 @@
             <% if session.roles.find_by(user_id: @user.id).game_master != 'f' %>
               <div class="margin-clear clearfix greenblock">Game Master</div>
             <% else %>
-              <%if session.characters.where(user_id: @user.id)%>
+              <%if session.characters.find_by(user_id: @user.id)%>
                 <div class="align-items-center margin-clear clearfix redblock"><%= session.characters.find_by(user_id: @user.id).pseudo %><br>Niveau <%= session.characters.find_by(user_id: @user.id).level %></div>
               <%end%>
             <%end%>
@@ -43,17 +43,17 @@
             <div class="separator"></div>
             <p><%= session.description%></p>
             <% if user_signed_in? %>
-              <% if current_user.id == @user.id  %>
-                <% if session.roles.find_by(user_id: @user.id).game_master == 'f'  && !@user.characters.find_by(game_session: session) %>
-                  <select class="form-control char-selecter col-md-6" name="character[pseudo]">
-                    <%if @user.characters.find_by(game_session_id: nil,roleplay_id: session.roleplay_id)%>
+              <%if @user.characters.find_by(game_session_id: nil,roleplay_id: session.roleplay_id)%>
+                <%= form_for @character, "/character/add_character_to_session/#{@user.id}", html: { class: "col-md-6"} do |f| %>
+                  <%= f.hidden_field :game_session, value: session %>
+                  <select class="char-selecter" name="character[id]">
                       <%@user.characters.where(game_session_id: nil,roleplay_id: session.roleplay_id).each do |char|%>
-                        <option><%=char.pseudo%> - <%= char.level%></option>
+                        <option value="<%= char.id %>"><%=char.pseudo%> - <%= char.level%></option>
                       <%end%>
-                    <%end%>
                   </select>
+                  <%= f.submit 'Ajouter le personnage', "btn btn-dark" %>
                 <% end %>
-              <% end %>
+              <%end%>
             <% end %>
             <a href="/adventure/<%=session.id%>">Entrer</a>
           </div>
@@ -66,7 +66,7 @@
           <% if session.roles.find_by(user_id: @user.id).game_master != 'f' %>
           <div class="margin-clear clearfix greenblock">Game Master</div>
           <% else %>
-          <%if session.characters.where(user_id: @user.id)%>
+          <%if session.characters.find_by(user_id: @user.id)%>
           <div class="margin-clear clearfix redblock"><%= session.characters.find_by(user_id: @user.id).pseudo %><br>Niveau <%= session.characters.find_by(user_id: @user.id).level %></div>
           <% end %>
           <%end%>
